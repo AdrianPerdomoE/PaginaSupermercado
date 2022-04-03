@@ -6,7 +6,7 @@ import { Global } from "./Global";
 
 @Injectable()
 export class ProductService{
-    public url: String;
+    public url: string;
     constructor(private _http:HttpClient){
         this.url = Global.url;
     }
@@ -25,12 +25,12 @@ export class ProductService{
         return this._http.get(`${this.url}GetProducts`,{headers:headers});
     }
 
-    getProduct(id:String):Observable<any>{
+    getProduct(id:string):Observable<any>{
         let headers = this.createHeaders();
         return this._http.get(`${this.url}GetProduct/${id}`,{headers:headers});
     }
 
-    deleteProduct(id:String): Observable<any>{
+    deleteProduct(id:string): Observable<any>{
         let headers = this.createHeaders();
         return this._http.delete(`${this.url}DeleteProduct/${id}`,{headers:headers});
     }

@@ -11,7 +11,7 @@ import { Global } from 'src/app/services/Global';
   providers : [ProductService, UploadFileService]
 })
 export class CrearProductoComponent implements OnInit {
-  public title : String;
+  public title : string;
   public product : Product;
   public status : string;
   public filesToUpload : Array<File>;

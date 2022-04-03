@@ -10,13 +10,15 @@ import { CrearProductoComponent } from './components/crear-producto/crear-produc
 import { ProductosComponent } from './components/productos/productos.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { ErrorComponent } from './components/error/error.component';
+import { EditarProductoComponent } from './components/editar-producto/editar-producto.component';
 @NgModule({
   declarations: [
     AppComponent,
     CrearProductoComponent,
     ProductosComponent,
     ProductoComponent,
-    ErrorComponent
+    ErrorComponent,
+    EditarProductoComponent
   ],
   imports: [
     BrowserModule,

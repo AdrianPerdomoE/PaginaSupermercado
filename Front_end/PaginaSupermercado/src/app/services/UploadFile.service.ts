@@ -1,13 +1,13 @@
 import { Injectable } from "@angular/core";
-import { Global } from "./global";
+import { Global } from "./Global";
 
 @Injectable()
 export class UploadFileService{
-    public url: String;
+    public url: string;
     constructor(){
         this.url = Global.url;
     }
-    makeFileRequest(url:String,params:Array<String>,files:Array<File>,name:String){
+    makeFileRequest(url:string,params:Array<string>,files:Array<File>,name:string){
         return new Promise((resolve,reject)=>{
             var formData:any = new FormData();
             var xhr:any = new XMLHttpRequest();//objeto para peticiones asincronas

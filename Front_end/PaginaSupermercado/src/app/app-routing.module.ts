@@ -5,12 +5,14 @@ import { CrearProductoComponent } from './components/crear-producto/crear-produc
 import { ProductosComponent } from './components/productos/productos.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { ErrorComponent } from './components/error/error.component';
+import { EditarProductoComponent } from './components/editar-producto/editar-producto.component';
 //Añadir ruta a la lista
 const routes: Routes = [
   {path:"Crear-Producto",component:CrearProductoComponent},
   {path:"Productos",component:ProductosComponent},
   {path:"Producto/:id",component:ProductoComponent},
-  {path:"**",component:ErrorComponent}//crear componente de error
+  {path:"EditarProducto/:id",component:EditarProductoComponent},
+  {path:"**",component:ErrorComponent}
 ];
 
 @NgModule({

@@ -12,7 +12,7 @@ import { RouterLink } from '@angular/router';
 })
 export class ProductosComponent implements OnInit {
   public products:Product[];
-  public url : String;
+  public url : string;
   constructor(
     private _productService: ProductService
   ) { 

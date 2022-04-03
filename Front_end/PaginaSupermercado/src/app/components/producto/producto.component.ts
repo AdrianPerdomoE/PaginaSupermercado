@@ -10,7 +10,7 @@ import { Router,ActivatedRoute } from '@angular/router';
   providers:[ProductService]
 })
 export class ProductoComponent implements OnInit {
-  public url: String;
+  public url: string;
   public product:Product;
   public confirm:boolean;
   constructor(
@@ -29,7 +29,7 @@ export class ProductoComponent implements OnInit {
       this.getProduct(id);
     })
   }
-  getProduct(id:String){
+  getProduct(id:string){
     this._productService.getProduct(id).subscribe(
       response=>{
         this.product = response.product;
@@ -37,7 +37,7 @@ export class ProductoComponent implements OnInit {
     );
   }
 
-  deleteProduct(id:String){
+  deleteProduct(id:string){
     this._productService.deleteProduct(id).subscribe(
       response=>{
         if(response.product){
