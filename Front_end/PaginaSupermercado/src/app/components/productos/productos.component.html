@@ -1,0 +1,21 @@
+<div class="container">
+    <h2>Productos</h2>
+    <ul>
+        <li *ngFor="let product of products" class="product">
+            <div>
+                <a [routerLink]="['/Producto',product._id]">
+                    <h3>
+                        {{product.nombre}}
+                    </h3>
+                </a>
+                <div class="imagen">
+                    <img src="{{url+'GetImagen/'+product.imagen}}" *ngIf="product.imagen">
+                </div>
+                <p>TIPO: {{product.tipo}}</p>
+                <p>{{product.caracteristicas}}</p>
+                <p>CANTIDAD DISPONIBLE: {{product.cantidad}}</p>
+                <p>PRECIO: {{product.precio}} $</p>
+            </div>
+        </li>
+    </ul>
+</div>

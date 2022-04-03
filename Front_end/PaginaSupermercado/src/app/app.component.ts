@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'PaginaSupermercado';
-  Links = ["Crear-Producto"];
+  Links = ["Crear-Producto","Productos"];
   enrutar(link:String){
     return `/${link}`;
   }
