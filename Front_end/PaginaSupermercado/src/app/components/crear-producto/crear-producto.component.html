@@ -33,6 +33,6 @@
             <input name="imagen" type="file" placeholder="Subir imagen" #imagen ="ngModel" [(ngModel)]="product.cantidad" (change)="fileChangeEvent($event)") required>
             <span *ngIf="imagen.touched && !imagen.value" class="formError">Este campo es obligatorio</span>
         </div>
-        
+        <input type="submit" value="Enviar" [disabled]="!productForm.form.valid">
     </form>
 </div>
