@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 //importar http y formularios de angular
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CrearProductoComponent } from './components/crear-producto/crear-producto.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CrearProductoComponent
   ],
   imports: [
     BrowserModule,
