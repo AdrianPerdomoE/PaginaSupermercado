@@ -4,12 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { CrearProductoComponent } from './components/crear-producto/crear-producto.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { ProductoComponent } from './components/producto/producto.component';
+import { ErrorComponent } from './components/error/error.component';
 //Añadir ruta a la lista
 const routes: Routes = [
   {path:"Crear-Producto",component:CrearProductoComponent},
   {path:"Productos",component:ProductosComponent},
   {path:"Producto/:id",component:ProductoComponent},
-  {path:"**",component:CrearProductoComponent}//crear componente de error
+  {path:"**",component:ErrorComponent}//crear componente de error
 ];
 
 @NgModule({
