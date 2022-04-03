@@ -25,7 +25,7 @@ export class ProductService{
         return this._http.get(`${this.url}GetProducts`,{headers:headers});
     }
 
-    getProduct(id:string):Observable<any>{
+    getProduct(id:String):Observable<any>{
         let headers = this.createHeaders();
         return this._http.get(`${this.url}GetProduct/${id}`,{headers:headers});
     }
