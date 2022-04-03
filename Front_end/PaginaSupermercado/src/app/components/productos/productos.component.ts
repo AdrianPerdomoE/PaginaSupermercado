@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/Product';
 import { ProductService } from 'src/app/services/Product.service';
 import { Global } from 'src/app/services/Global';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'productos',

@@ -17,7 +17,7 @@ var controller = {
             if(err){
                 return res.status(500).send({msg:"Error en la petición"});
             }
-            if(!projectStored){
+            if(!productStored){
                 return res.status(404).send({msg:"No se ha podido  guardar el producto"});
             }
             return res.status(200).send({msg:"Producto agregado exitosamente",product:productStored});
@@ -46,9 +46,9 @@ var controller = {
             return res.status(200).send({products});
         });
     },
-    upDateProduct:(req,res)=>{
+    updateProduct:(req,res)=>{
         var product_id = req.params.id;
-        var udDate = req.body;
+        var upData = req.body;
         Product.findByIdAndUpdate(product_id,upData,{new:true},(err,productUpDated)=>{
             if(err){
                 return res.status(500).send({msg:"Error al actualizar"});
@@ -71,7 +71,7 @@ var controller = {
             return res.status(200).send({msg:"Producto eliminado correctamente",product:productDeleted});
         });
     },
-    uploadImage:(req,res)=>{
+    uploadImagen:(req,res)=>{
         var product_id = req.params.id;
         var fileName = "Imagen no subida...";
         if(req.files){
@@ -81,7 +81,7 @@ var controller = {
             var extSplit = fileName.split("\.");
             var fileExt = extSplit[1];
             if(fileExt=="png"||fileExt=="jpg"||fileExt=="jpeg"||fileExt=="gif"){
-                Product.findByIdAndUpdate(product_id,{imagen:fileName},{new0:true},(err,productUpdated)=>{
+                Product.findByIdAndUpdate(product_id,{imagen:fileName},{new:true},(err,productUpdated)=>{
                     if(err){
                         return res.status(500).send({msg:"La imagen no se ha subido"});
                     }
@@ -102,7 +102,7 @@ var controller = {
         }
     },
     getImageFile:(req,res)=>{
-        var file = req.params.imagen;
+        var file = req.params.image;
         var path_file = `./img/${file}`;
         fs.exists(path_file,(exists)=>{
             if(exists){

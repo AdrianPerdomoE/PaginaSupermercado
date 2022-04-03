@@ -37,7 +37,7 @@ export class CrearProductoComponent implements OnInit {
         if(response){
           //Subir la imagen
           if(this.filesToUpload.length>=1){
-            this._UploadFileService.makeFileRequest(`${Global.url}UploadImagen/${response.product._id}`,[],this.filesToUpload,"imagen").then((result:any)=>{
+            this._UploadFileService.makeFileRequest(`${Global.url}UploadImagen/${response.product._id}`,[],this.filesToUpload,"image").then((result:any)=>{
               this.savedProduct = result.productUpdated;
             });
           }

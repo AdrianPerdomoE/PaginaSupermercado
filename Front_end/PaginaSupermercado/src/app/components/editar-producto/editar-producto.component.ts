@@ -46,10 +46,11 @@ export class EditarProductoComponent implements OnInit {
 
   onSubmit(){
     this._productService.updateProduct(this.product).subscribe(
-      response=>{
+     {
+       next:(response)=>{
         if(response.product){
           if(this.filesToUpload.length>=1){
-            this._uploadFileService.makeFileRequest(`${this.url}UploadImagen/${this.product._id}`,[],this.filesToUpload,"imagen").then(((result:any)=>{}));
+            this._uploadFileService.makeFileRequest(`${this.url}UploadImagen/${this.product._id}`,[],this.filesToUpload,"image").then(((result:any)=>{}));
           }
           this.status = "Success";
         }
@@ -57,7 +58,12 @@ export class EditarProductoComponent implements OnInit {
           this.status = "Failed"
         }
         scrollTo(0,0);  
-      }
+      },
+      error(err: any): void {
+          console.log(<any>err);
+      },
+      complete(): void {}
+     }
     );
   }
 

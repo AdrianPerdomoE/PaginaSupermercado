@@ -17,7 +17,7 @@
     </div>
     <div *ngIf="confirm">
         <span class="confirmacion">¿ESTA SEGURO QUE DESEA ELIMINAR EL Producto?</span>
-        <a (click)="confirm = false" class="bttn-cancelar"></a>
+        <a (click)="confirm = false" class="bttn-cancelar">cancelar</a>
         <a (click)="deleteProduct(product._id)" class="bttn-eliminar">ELIMINAR</a>
     </div>
 </div>

@@ -4,7 +4,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var app = express();
 // cargar rutas 
-var projectRoutes = require("./routes/router");
+var productRoutes = require("./routes/router");
 //configuración de middleWares (Metodos que se ejecutan antes de la accion de un controlador)
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());//convertir  lo que llegue a un objeto Json
@@ -17,5 +17,5 @@ app.use((req,res,next)=>{
     next(); 
 });
 //Configurar rutas
-app.use("/api",projectRoutes);
+app.use("/api",productRoutes);
 module.exports= app;

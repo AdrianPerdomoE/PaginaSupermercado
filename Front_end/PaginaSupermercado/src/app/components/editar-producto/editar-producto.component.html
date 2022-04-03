@@ -2,7 +2,7 @@
     <h2>{{title}}</h2>
     <div class="message Success" *ngIf="status =='Success'">El producto ha sido editado correctamente, puedes verlo <a [routerLink]="['/Producto',product._id]">AQUI</a></div>
     <div class="message Failed" *ngIf="status ==' Failed'">El producto no se ha podido guardar </div>
-    <form #productForm = "ngForm" (ngSubmit)="onSubmit()")>
+    <form #productForm = "ngForm" (ngSubmit)="onSubmit()">
         <div>
             <label for="name">Nombre del producto</label>
             <input name="name" type="text" #nombre ="ngModel" [(ngModel)]="product.nombre" required>
@@ -30,8 +30,9 @@
         </div>
         <div>
             <label for="imagen">Imagen del producto</label>
-            <input name="imagen" type="file" placeholder="Subir imagen" #imagen ="ngModel" [(ngModel)]="product.cantidad" (change)="fileChangeEvent($event)") required>
-            <span *ngIf="imagen.touched && !imagen.value" class="formError">Este campo es obligatorio</span>
+            <img src="{{url+'GetImagen/'+product.imagen}}" *ngIf="product.imagen"> 
+            <input name="imagen" type="file" placeholder="Subir imagen" #imagen (change)="fileChangeEvent($event)" required>
+            <span *ngIf="!imagen.value" class="formError">Este campo es obligatorio</span>
         </div>
         <input type="submit" value="Enviar" [disabled]="!productForm.form.touched"> 
     </form>

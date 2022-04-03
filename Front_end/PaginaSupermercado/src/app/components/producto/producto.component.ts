@@ -39,11 +39,17 @@ export class ProductoComponent implements OnInit {
 
   deleteProduct(id:string){
     this._productService.deleteProduct(id).subscribe(
-      response=>{
-        if(response.product){
-          this._router.navigate(['/Productos']);
-        }
-      }
+      {
+        next:(response)=>{
+          if(response.product){
+            this._router.navigate(['/Productos']);
+          }
+        },
+        error:(err)=>{
+          console.log(<any>err);
+        },
+        complete:()=>{}
+      }   
     );
   }
 
