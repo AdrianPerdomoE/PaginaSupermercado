@@ -1,0 +1,13 @@
+<ng-template #noAdmin>
+    <ul class="CajaLinks">
+        <li *ngFor=" let link of Links">
+            <a [routerLink]="'/'+link" [routerLinkActive]="['actived']" class="links">{{link}}</a>
+        </li>
+    </ul>
+</ng-template>
+
+<ul *ngIf="_auth.isAdmin |async; else noAdmin" class="CajaLinks">
+    <li *ngFor=" let link of LinksAdmin">
+        <a [routerLink]="'/'+link" [routerLinkActive]="['actived']" class="links">{{link}}</a>
+    </li>
+</ul>

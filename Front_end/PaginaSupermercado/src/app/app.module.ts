@@ -11,6 +11,14 @@ import { ProductosComponent } from './components/productos/productos.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { ErrorComponent } from './components/error/error.component';
 import { EditarProductoComponent } from './components/editar-producto/editar-producto.component';
+import { CarritoComponent } from './components/carrito/carrito.component';
+import { ProductosAdminComponent } from './components/productos-admin/productos-admin.component';
+import { ProductPreviewComponent } from './components/product-preview/product-preview.component';
+import { LoginComponent } from './components/login/login.component';
+import { ProductService } from './services/Product.service';
+import { AdminGuard } from './guards/admin.guard';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { CarritoItemComponent } from './components/carrito-item/carrito-item.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +26,13 @@ import { EditarProductoComponent } from './components/editar-producto/editar-pro
     ProductosComponent,
     ProductoComponent,
     ErrorComponent,
-    EditarProductoComponent
+    EditarProductoComponent,
+    CarritoComponent,
+    ProductosAdminComponent,
+    ProductPreviewComponent,
+    LoginComponent,
+    NavbarComponent,
+    CarritoItemComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +40,7 @@ import { EditarProductoComponent } from './components/editar-producto/editar-pro
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

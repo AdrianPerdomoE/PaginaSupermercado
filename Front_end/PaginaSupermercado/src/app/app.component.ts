@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AutenticationService } from './services/autentication.service';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'PaginaSupermercado';
-  Links = ["Crear-Producto","Productos"];
-  enrutar(link:string){
-    return `/${link}`;
-  }
+  constructor() { }
 }

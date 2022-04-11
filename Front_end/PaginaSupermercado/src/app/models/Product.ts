@@ -3,8 +3,8 @@ export class Product{
         public _id:string,
         public nombre:string,
         public tipo:string,
-        public precio:Number,
-        public cantidad:Number,
+        public precio:number,
+        public cantidad:number,
         public caracteristicas:string,
         public imagen:string
     ){}

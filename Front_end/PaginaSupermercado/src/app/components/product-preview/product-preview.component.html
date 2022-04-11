@@ -1,0 +1,22 @@
+<div>
+    <div class="container" (click)="clicked=!clicked">
+        <h3>
+            {{product.nombre}}
+        </h3>
+        <div class="imagen">
+            <img src="{{url+'GetImagen/'+product.imagen}}" *ngIf="product.imagen">
+        </div>
+        <p>TIPO: {{product.tipo}}</p>
+        <p>{{product.caracteristicas}}</p>
+        <p>CANTIDAD DISPONIBLE: {{product.cantidad}}</p>
+        <p>PRECIO: {{product.precio}} $</p>
+
+    </div>
+    <div *ngIf="clicked">
+        <form #Form>
+            <label>Cantidad</label>
+            <input type="number" #cantidad>
+            <button (click)="carService.addToCar(product,cantidad.valueAsNumber)">Agregar a carito</button>
+        </form>
+    </div>
+</div>

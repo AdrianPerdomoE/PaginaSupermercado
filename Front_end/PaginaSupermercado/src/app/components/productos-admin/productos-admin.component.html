@@ -2,7 +2,7 @@
     <h2>Productos</h2>
     <ul>
         <li *ngFor="let product of products" class="product">
-            <div #product>
+            <div (dblclick)=" NavigateToProduct(product._id)" #product>
                 <app-product-preview [product]="product"></app-product-preview>
             </div>
         </li>

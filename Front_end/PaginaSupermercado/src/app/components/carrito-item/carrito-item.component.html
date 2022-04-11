@@ -1,0 +1,18 @@
+<div class="carritoItem">
+    <ul>
+        <li>
+            Nombre: {{itemCarrito?.nombre}}
+        </li>
+
+        <li>
+            cantidad reservada: {{itemCarrito?.cantidad}}
+        </li>
+
+        <li>
+            precio: {{itemCarrito?.precio}}
+        </li>
+        <li>
+            <img *ngIf="itemCarrito?.imagen" src="{{url+'GetImagen/'+itemCarrito?.imagen}}">
+        </li>
+    </ul>
+</div>

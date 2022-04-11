@@ -1,0 +1,17 @@
+<div class="container">
+    <h2>Carrito de compra</h2>
+    <ul>
+        <li *ngFor="let itemCarrito of ListaCarrito" class="itemCarrito">
+            <div #item>
+                <app-carrito-item [itemCarrito]="itemCarrito"></app-carrito-item>
+            </div>
+        </li>
+        <li>
+            <button (click)="verTotal=!verTotal">{{verTotal? "Ocultar":"ver total" }}</button>
+            <div *ngIf="verTotal">
+                <label>{{total()}}</label>
+                <button (click)="pagar()">Pagar</button>
+            </div>
+        </li>
+    </ul>
+</div>

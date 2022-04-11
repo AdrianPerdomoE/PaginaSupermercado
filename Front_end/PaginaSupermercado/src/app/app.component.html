@@ -1,9 +1,5 @@
 <header>
-  <ul class="CajaLinks">
-    <li *ngFor=" let link of Links">
-      <a [routerLink]= enrutar(link) [routerLinkActive]="['actived']"  class="links">{{link}}</a>
-    </li>
-  </ul>
+  <app-navbar></app-navbar>
 </header>
 <section id="contenido">
   <router-outlet></router-outlet>
@@ -11,4 +7,3 @@
 <footer>
   UrShopping&copy;
 </footer>
-
