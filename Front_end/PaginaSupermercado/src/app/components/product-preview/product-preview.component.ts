@@ -19,5 +19,14 @@ export class ProductPreviewComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  ajustarValorCantidad(cantidadReferece: any) {
+    if (cantidadReferece.valueAsNumber > this.product.cantidad) {
+      cantidadReferece.valueAsNumber = this.product.cantidad;
+      return;
+    }
+    if (cantidadReferece.valueAsNumber < 0) {
+      cantidadReferece.valueAsNumber = 1;
+    }
+  }
 
 }

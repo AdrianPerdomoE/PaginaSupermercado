@@ -1,0 +1,23 @@
+.CajaLinks {
+    display: inline-flex;
+
+}
+
+.CajaLinks li {
+    list-style: none;
+    width: 10rem;
+    background-color: darkcyan;
+    border: solid 0.1rem azure;
+    text-align: center;
+}
+
+.CajaLinks li a.actived {
+
+    background-color: aquamarine;
+
+}
+
+.CajaLinks li a {
+    text-decoration: none;
+    display: block;
+}

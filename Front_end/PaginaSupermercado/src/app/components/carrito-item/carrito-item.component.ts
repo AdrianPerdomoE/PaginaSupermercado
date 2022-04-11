@@ -20,5 +20,13 @@ export class CarritoItemComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  ajustarValorCantidad(cantidadReferece: any) {
+    if (cantidadReferece.valueAsNumber > this.itemCarrito.cantidad) {
+      cantidadReferece.valueAsNumber = this.itemCarrito.cantidad;
+      return;
+    }
+    if (cantidadReferece.valueAsNumber < 0) {
+      cantidadReferece.valueAsNumber = 1;
+    }
+  }
 }

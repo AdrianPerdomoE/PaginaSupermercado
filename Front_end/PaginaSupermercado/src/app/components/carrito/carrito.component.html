@@ -1,7 +1,7 @@
 <div class="container">
     <h2>Carrito de compra</h2>
-    <ul>
-        <li *ngFor="let itemCarrito of ListaCarrito" class="itemCarrito">
+    <ul class="itemsCarrito">
+        <li *ngFor="let itemCarrito of ListaCarrito">
             <div #item>
                 <app-carrito-item [itemCarrito]="itemCarrito"></app-carrito-item>
             </div>

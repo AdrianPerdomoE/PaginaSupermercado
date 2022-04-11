@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: beige;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    background-color: azure;
+    width: 70%;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    display: block;
+    position: fixed;
+    top: 98%;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5rem;
+    transition: 300ms;
+}
+
+.imagen img {
+    width: 10rem;
+}

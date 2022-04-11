@@ -1,4 +1,4 @@
-<div class="carritoItem">
+<div class="carritoItem" *ngIf="itemCarrito.cantidad > 0">
     <ul (click)="clicked = !clicked">
         <li>
             Nombre: {{itemCarrito.nombre}}
@@ -12,13 +12,16 @@
             precio: {{itemCarrito.precio}}
         </li>
         <li>
-            <img *ngIf="itemCarrito.imagen" src="{{url+'GetImagen/'+itemCarrito?.imagen}}">
+            <div class="imagen">
+                <img *ngIf="itemCarrito.imagen" src="{{url+'GetImagen/'+itemCarrito?.imagen}}">
+            </div>
         </li>
     </ul>
     <div *ngIf="clicked">
         <form #Form>
             <label>Cantidad</label>
-            <input type="number" #cantidad>
+            <input type="number" #cantidad min="1" max={{itemCarrito.cantidad}} (blur)="ajustarValorCantidad(cantidad)">
+
             <button (click)="carService.takeOutCarItem(itemCarrito,cantidad.valueAsNumber)">sacar del carito</button>
         </form>
     </div>

@@ -1,36 +1,38 @@
-<div class="container">
+<div class="productForm">
     <h2>{{title}}</h2>
-    <div class="message Success" *ngIf="status =='Success'">El producto ha sido creado correctamente, puedes verlo <a [routerLink]="['/Producto',savedProduct._id]">AQUI</a></div>
+    <div class="message Success" *ngIf="status =='Success'">El producto ha sido creado correctamente, puedes verlo <a
+            [routerLink]="['/Producto',savedProduct._id]">AQUI</a></div>
     <div class="message Failed" *ngIf="status ==' Failed'"></div>
-    <form #productForm = "ngForm" (ngSubmit)="onSubmit(productForm)">
+    <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
         <div>
             <label for="name">Nombre del producto</label>
-            <input name="name" type="text" #nombre ="ngModel" [(ngModel)]="product.nombre" required>
+            <input name="name" type="text" #nombre="ngModel" [(ngModel)]="product.nombre" required>
             <span *ngIf="nombre.touched && !nombre.value" class="formError">Este campo es obligatorio</span>
         </div>
         <div>
             <label for="caracteristicas">Caracteristicas del producto</label>
-            <input name="caracteristicas" type="text" #caract ="ngModel" [(ngModel)]="product.caracteristicas" required>
+            <input name="caracteristicas" type="text" #caract="ngModel" [(ngModel)]="product.caracteristicas" required>
             <span *ngIf="caract.touched && !caract.value" class="formError">Este campo es obligatorio</span>
         </div>
         <div>
             <label for="tipo">Tipo de producto</label>
-            <input name="tipo" type="text" #tipo ="ngModel" [(ngModel)]="product.tipo" required>
+            <input name="tipo" type="text" #tipo="ngModel" [(ngModel)]="product.tipo" required>
             <span *ngIf="tipo.touched && !tipo.value" class="formError">Este campo es obligatorio</span>
         </div>
         <div>
             <label for="precio">Precio del producto</label>
-            <input name="precio" type="number" #precio ="ngModel" [(ngModel)]="product.precio" required>
+            <input name="precio" type="number" #precio="ngModel" [(ngModel)]="product.precio" required>
             <span *ngIf="precio.touched && !precio.value" class="formError">Este campo es obligatorio</span>
         </div>
         <div>
             <label for="cantidad">Cantidad de producto</label>
-            <input name="cantidad" type="number" #cantidad ="ngModel" [(ngModel)]="product.cantidad" required>
+            <input name="cantidad" type="number" #cantidad="ngModel" [(ngModel)]="product.cantidad" required>
             <span *ngIf="cantidad.touched && !cantidad.value" class="formError">Este campo es obligatorio</span>
         </div>
         <div>
             <label for="imagen">Imagen del producto</label>
-            <input name="imagen" type="file" placeholder="Subir imagen" #imagen ="ngModel" [(ngModel)]="product.imagen" (change)="fileChangeEvent($event)" required>
+            <input name="imagen" type="file" placeholder="Subir imagen" #imagen="ngModel" [(ngModel)]="product.imagen"
+                (change)="fileChangeEvent($event)" required>
             <span *ngIf="imagen.touched && !imagen.value" class="formError">Este campo es obligatorio</span>
         </div>
         <input type="submit" value="Enviar" [disabled]="!productForm.form.valid">
