@@ -1,18 +1,25 @@
 <div class="carritoItem">
-    <ul>
+    <ul (click)="clicked = !clicked">
         <li>
-            Nombre: {{itemCarrito?.nombre}}
+            Nombre: {{itemCarrito.nombre}}
         </li>
 
         <li>
-            cantidad reservada: {{itemCarrito?.cantidad}}
+            cantidad reservada: {{itemCarrito.cantidad}}
         </li>
 
         <li>
-            precio: {{itemCarrito?.precio}}
+            precio: {{itemCarrito.precio}}
         </li>
         <li>
-            <img *ngIf="itemCarrito?.imagen" src="{{url+'GetImagen/'+itemCarrito?.imagen}}">
+            <img *ngIf="itemCarrito.imagen" src="{{url+'GetImagen/'+itemCarrito?.imagen}}">
         </li>
     </ul>
+    <div *ngIf="clicked">
+        <form #Form>
+            <label>Cantidad</label>
+            <input type="number" #cantidad>
+            <button (click)="carService.takeOutCarItem(itemCarrito,cantidad.valueAsNumber)">sacar del carito</button>
+        </form>
+    </div>
 </div>

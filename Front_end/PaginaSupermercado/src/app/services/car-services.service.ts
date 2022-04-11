@@ -51,26 +51,27 @@ export class CarServicesService {
     this._productService.getProduct(carItem._id).subscribe(
       response => {
         product = response.product;
+        product.cantidad += cantidad;
+        carItem.cantidad -= cantidad;
+        this._productService.updateProduct(product).subscribe(
+          {
+            next: (response) => {
+              if (response.product) {
+                if (carItem.cantidad == 0) {
+                  localStorage.removeItem(carItem.nombre);
+                  return;
+                }
+                localStorage.setItem(carItem.nombre, JSON.stringify(carItem));
+              }
+            },
+            error(err: any): void {
+              console.log(<any>err);
+            },
+            complete(): void { }
+          }
+        );
       }
     );
-    product.cantidad += cantidad;
-    carItem.cantidad -= cantidad;
-    this._productService.updateProduct(product).subscribe(
-      {
-        next: (response) => {
-          if (response.product) { }
-        },
-        error(err: any): void {
-          console.log(<any>err);
-        },
-        complete(): void { }
-      }
-    );
-    if (carItem.cantidad == 0) {
-      localStorage.removeItem(carItem.nombre);
-      return;
-    }
-    localStorage.setItem(carItem.nombre, JSON.stringify(carItem));
   }
 
   getCarItems(): Array<CarItem> {
