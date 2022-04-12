@@ -1,5 +1,6 @@
 <ng-template #noAdmin>
     <ul class="CajaLinks">
+        <app-logo></app-logo>
         <li *ngFor=" let link of Links">
             <a [routerLink]="'/'+link" [routerLinkActive]="['actived']" class="links">{{link}}</a>
         </li>

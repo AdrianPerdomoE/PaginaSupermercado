@@ -1,6 +1,8 @@
 .CajaLinks {
     display: inline-flex;
-
+    background-color: #023164;
+    height: 4rem;
+    width: 100%;
 }
 
 .CajaLinks li {
@@ -9,15 +11,18 @@
     background-color: darkcyan;
     border: solid 0.1rem azure;
     text-align: center;
+    
 }
 
 .CajaLinks li a.actived {
-
     background-color: aquamarine;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .CajaLinks li a {
     text-decoration: none;
     display: block;
+    height: 3.9rem;
 }

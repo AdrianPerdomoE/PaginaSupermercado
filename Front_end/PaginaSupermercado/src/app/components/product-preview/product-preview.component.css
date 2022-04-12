@@ -1,0 +1,23 @@
+.product{
+    background-color: #fff;
+    height: 100%;
+    border: 1px;
+    border-radius: 5px;
+    max-width: 240px !important;
+    min-width: 240px !important;
+
+}
+
+.imagen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    margin-top: 25px;
+}
+
+.precio{
+    font-size: 25px;
+}

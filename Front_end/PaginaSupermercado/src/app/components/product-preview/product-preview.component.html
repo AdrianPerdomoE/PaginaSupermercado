@@ -1,15 +1,17 @@
 <div *ngIf="product.cantidad > 0">
     <div class="product" (click)="clicked=!clicked">
-        <h3>
-            {{product.nombre}}
-        </h3>
+        
         <div class="imagen">
             <img src="{{url+'GetImagen/'+product.imagen}}" *ngIf="product.imagen">
         </div>
+        <h3>
+            {{product.nombre}}
+        </h3>
+        
         <p>TIPO: {{product.tipo}}</p>
         <p>{{product.caracteristicas}}</p>
         <p>CANTIDAD DISPONIBLE: {{product.cantidad}}</p>
-        <p>PRECIO: {{product.precio}} $</p>
+        <p class="precio">PRECIO: {{product.precio}} $</p>
 
     </div>
     <div *ngIf="clicked">

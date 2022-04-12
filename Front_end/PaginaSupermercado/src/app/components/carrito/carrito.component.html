@@ -6,12 +6,12 @@
                 <app-carrito-item [itemCarrito]="itemCarrito"></app-carrito-item>
             </div>
         </li>
-        <li>
-            <button (click)="verTotal=!verTotal">{{verTotal? "Ocultar":"ver total" }}</button>
-            <div *ngIf="verTotal">
-                <label>{{total()}}</label>
-                <button (click)="pagar()">Pagar</button>
-            </div>
-        </li>
     </ul>
+    
+</div>
+<div class="TotalLbl">
+    <label>{{total()}}$</label>
+</div>
+<div class="buttonClass">
+    <button (click)="pagar()">Pagar</button>
 </div>
