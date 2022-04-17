@@ -76,4 +76,4 @@ var controller = {
         })
     }
 }
-module.export = controller
+module.exports = controller
