@@ -10,6 +10,7 @@ var controller = {
         usuario.Password = params.Password;
         usuario.edad = params.edad;
         usuario.direccion = params.direccion;
+        usuario.rol = params.rol
         usuario.save((err, userStored) => {
             if (err) {
                 return res.status(500).send({ msg: 'Error en la petición' })

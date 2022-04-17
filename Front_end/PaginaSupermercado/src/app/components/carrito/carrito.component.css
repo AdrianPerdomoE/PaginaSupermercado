@@ -1,9 +1,9 @@
-.container{
+.container {
     width: 100%;
     height: 100%;
 }
 
-.itemsCarrito{
+.itemsCarrito {
     width: 100%;
     height: 100%;
     list-style: none;
@@ -15,13 +15,12 @@
     background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(115, 231, 255, 1) 100%);
 }
 
-.itemsCarrito li{
+.itemsCarrito li {
     margin-top: 50px;
     margin-bottom: 50px;
 }
 
-
-.TotalLbl{
+.TotalLbl {
     width: 100%;
     margin: 25px;
     display: flex;
@@ -29,7 +28,7 @@
     font-size: 25px;
 }
 
-.buttonClass{
+.buttonClass {
     width: 100%;
     display: flex;
     justify-content: center;
