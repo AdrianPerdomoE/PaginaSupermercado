@@ -1,5 +1,5 @@
 'use strict'
-var User = require('../models/user');
+var User = require('../models/Usuario');
 
 var controller = {
     saveUser: (req, res) => {
@@ -18,14 +18,14 @@ var controller = {
             if (!userStored) {
                 return res.status(404).send({ msg: 'No se ha podido guardar el usuario' })
             }
-            return res.status(200).send({ msg: 'Usuario agregado exitosamente', usuario: userStored })
+            return res.status(200).send({ msg: 'Usuario agregado exitosamente', user: userStored })
         })
 
     },
-    getUser: function(req, res) {
+    getUser: function (req, res) {
         var userId = req.params.id;
 
-        if (userId == null) {
+        if (!userId) {
             return req.status(404).send({ message: 'El usuario no existe' })
         }
 
@@ -38,7 +38,7 @@ var controller = {
             return res.status(200).send({ user });
         })
     },
-    getUsers: function(req, res) {
+    getUsers: function (req, res) {
         User.find({}).exec((err, users) => {
             if (err) return res.status(500).send({ message: 'Error al devolver los datos' })
 
@@ -48,11 +48,11 @@ var controller = {
         })
 
     },
-    updateUser: function(req, res) {
+    updateUser: function (req, res) {
         var userId = req.params.id;
         var update = req.body;
 
-        User.findByIdAndUpdate(userId, update, (err, userUpdated) => {
+        User.findByIdAndUpdate(userId, update, { new: true }, (err, userUpdated) => {
             if (err) return res.status(500).send({ message: 'Error al actualizar' });
 
             if (!userUpdated) return res.status(404).send({ message: 'No se ha podido actualizar' });
@@ -62,7 +62,7 @@ var controller = {
             })
         })
     },
-    deleteUser: function(req, res) {
+    deleteUser: function (req, res) {
         var userId = req.params.id;
 
         User.findByIdAndDelete(userId, (err, userRemoved) => {
