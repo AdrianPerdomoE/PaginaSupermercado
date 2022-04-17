@@ -1,4 +1,4 @@
-.product{
+.product {
     background-color: #fff;
     height: 100%;
     border: 1px;
@@ -8,16 +8,16 @@
 
 }
 
-.imagen{
+.imagen {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-img{
+img {
     margin-top: 25px;
 }
 
-.precio{
+.precio {
     font-size: 25px;
 }

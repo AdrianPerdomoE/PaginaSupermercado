@@ -4,17 +4,23 @@ body {
     margin: 0;
 }
 
+ul {
+    margin: 0;
+}
+
 .container {
     background-color: azure;
     width: 70%;
+    margin-inline: auto;
+    margin-bottom: 1rem;
+    overflow: hidden;
 }
 
 footer {
     background-color: black;
     color: white;
-    display: block;
+    top: 97%;
     position: fixed;
-    top: 98%;
 }
 
 .products {
@@ -25,5 +31,25 @@ footer {
 }
 
 .imagen img {
-    width: 10rem;
+    width: 8rem;
+    height: 8rem;
+}
+
+.productForm {
+    margin-left: 3rem;
+}
+
+.productForm label {
+    display: block;
+    margin: 0.5rem 0 0.5rem;
+}
+
+.productForm .imagen img {
+    display: block;
+    margin: 0.5rem 0 0.5rem;
+}
+
+input[type="submit"i] {
+    display: block;
+    margin: 0.5rem 0 0.5rem;
 }

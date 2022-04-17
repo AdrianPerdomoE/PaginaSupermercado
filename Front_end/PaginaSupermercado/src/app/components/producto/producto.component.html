@@ -12,12 +12,12 @@
         <p>PRECIO: {{product.precio}} $</p>
     </div>
     <div *ngIf="!confirm">
-        <a [routerLink]="['/EditarProducto',product._id]" class="bttn-edit">Editar Producto</a>
-        <a (click)="confirm=true" class="bttn-delete">Borrar Producto</a>
+        <button [routerLink]="['/EditarProducto',product._id]" class="bttn-edit">Editar Producto</button>
+        <button (click)="confirm=true" class="bttn-delete">Borrar Producto</button>
     </div>
     <div *ngIf="confirm">
         <span class="confirmacion">¿ESTA SEGURO QUE DESEA ELIMINAR EL Producto?</span>
-        <a (click)="confirm = false" class="bttn-cancelar">cancelar</a>
-        <a (click)="deleteProduct(product._id)" class="bttn-eliminar">ELIMINAR</a>
+        <button (click)="confirm = false" class="bttn-cancelar">cancelar</button>
+        <button (click)="deleteProduct(product._id)" class="bttn-eliminar">ELIMINAR</button>
     </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CarItem } from 'src/app/models/carItem';
 import { CarServicesService } from 'src/app/services/car-services.service';
 
@@ -12,7 +13,8 @@ export class CarritoComponent implements OnInit {
   public ListaCarrito?: Array<CarItem>;
   verTotal = false;
   constructor(
-    private carService: CarServicesService
+    private carService: CarServicesService,
+    private _router: Router
   ) {
     this.ListaCarrito = undefined;
   }
@@ -31,5 +33,8 @@ export class CarritoComponent implements OnInit {
 
   pagar() {
     this.carService.removeCarItems();
+    alert("Pago realizado efectivamente")
+    location.reload();
+
   }
 }

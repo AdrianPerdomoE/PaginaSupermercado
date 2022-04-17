@@ -11,7 +11,8 @@
         </div>
         <div>
             <label for="caracteristicas">Caracteristicas del producto</label>
-            <input name="caracteristicas" type="text" #caract="ngModel" [(ngModel)]="product.caracteristicas" required>
+            <textarea name="caracteristicas" type="text" #caract="ngModel" [(ngModel)]="product.caracteristicas"
+                required></textarea>
             <span *ngIf="caract.touched && !caract.value" class="formError">Este campo es obligatorio</span>
         </div>
         <div>
@@ -21,12 +22,12 @@
         </div>
         <div>
             <label for="precio">Precio del producto</label>
-            <input name="precio" type="number" #precio="ngModel" [(ngModel)]="product.precio" required>
+            <input min="0" name="precio" type="number" #precio="ngModel" [(ngModel)]="product.precio" required>
             <span *ngIf="precio.touched && !precio.value" class="formError">Este campo es obligatorio</span>
         </div>
         <div>
             <label for="cantidad">Cantidad de producto</label>
-            <input name="cantidad" type="number" #cantidad="ngModel" [(ngModel)]="product.cantidad" required>
+            <input min="0" name="cantidad" type="number" #cantidad="ngModel" [(ngModel)]="product.cantidad" required>
             <span *ngIf="cantidad.touched && !cantidad.value" class="formError">Este campo es obligatorio</span>
         </div>
         <div>

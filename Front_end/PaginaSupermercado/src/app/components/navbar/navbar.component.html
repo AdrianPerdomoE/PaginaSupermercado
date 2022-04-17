@@ -8,6 +8,7 @@
 </ng-template>
 
 <ul *ngIf="_auth.isAdmin |async; else noAdmin" class="CajaLinks">
+    <app-logo></app-logo>
     <li *ngFor=" let link of LinksAdmin">
         <a [routerLink]="'/'+link" [routerLinkActive]="['actived']" class="links">{{link}}</a>
     </li>

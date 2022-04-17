@@ -22,7 +22,8 @@
             <label>Cantidad</label>
             <input type="number" #cantidad min="1" max={{itemCarrito.cantidad}} (blur)="ajustarValorCantidad(cantidad)">
 
-            <button (click)="carService.takeOutCarItem(itemCarrito,cantidad.valueAsNumber)">sacar del carito</button>
+            <button *ngIf="cantidad.valueAsNumber > 0"
+                (click)="carService.takeOutCarItem(itemCarrito,cantidad.valueAsNumber)">sacar del carito</button>
         </form>
     </div>
 </div>

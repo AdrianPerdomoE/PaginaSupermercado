@@ -1,13 +1,13 @@
 <div *ngIf="product.cantidad > 0">
     <div class="product" (click)="clicked=!clicked">
-        
+
         <div class="imagen">
             <img src="{{url+'GetImagen/'+product.imagen}}" *ngIf="product.imagen">
         </div>
         <h3>
             {{product.nombre}}
         </h3>
-        
+
         <p>TIPO: {{product.tipo}}</p>
         <p>{{product.caracteristicas}}</p>
         <p>CANTIDAD DISPONIBLE: {{product.cantidad}}</p>
@@ -18,7 +18,8 @@
         <form #Form>
             <label>Cantidad</label>
             <input type="number" #cantidad min="1" max={{product.cantidad}} (blur)="ajustarValorCantidad(cantidad)">
-            <button (click)="carService.addToCar(product,cantidad.valueAsNumber)">Agregar a carito</button>
+            <button *ngIf="cantidad.valueAsNumber > 0"
+                (click)="carService.addToCar(product,cantidad.valueAsNumber)">Agregar a carito</button>
         </form>
     </div>
 </div>

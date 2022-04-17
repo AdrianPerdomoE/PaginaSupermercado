@@ -7,11 +7,9 @@
             </div>
         </li>
     </ul>
-    
+
 </div>
 <div class="TotalLbl">
-    <label>{{total()}}$</label>
-</div>
-<div class="buttonClass">
-    <button (click)="pagar()">Pagar</button>
+    <label #porPagar>{{total()}}$</label>
+    <button *ngIf="total()> 0" (click)="pagar()">Pagar</button>
 </div>
