@@ -25,7 +25,6 @@ var controller = {
     getUser: function(req, res) {
         var UserName = req.params.UserName;
 
-        if (!userId) {
         if (!UserName) {
             return req.status(404).send({ message: 'El usuario no existe' })
         }
