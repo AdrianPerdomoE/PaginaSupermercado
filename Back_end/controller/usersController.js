@@ -22,23 +22,26 @@ var controller = {
         })
 
     },
-    getUser: function (req, res) {
-        var userId = req.params.id;
+    getUser: function(req, res) {
+        var UserName = req.params.UserName;
 
         if (!userId) {
+        if (!UserName) {
             return req.status(404).send({ message: 'El usuario no existe' })
         }
 
 
-        User.findById(userId, (err, user) => {
+        User.find({}).exec((err, user) => {
             if (err) return res.status(500).send({ message: 'Error al devolver los datos.' });
 
             if (!user) return req.status(404).send({ message: 'El usuario no existe' })
 
-            return res.status(200).send({ user });
+            if (user.UserName == UserName) {
+                return res.status(200).send({ user });
+            }
         })
     },
-    getUsers: function (req, res) {
+    getUsers: function(req, res) {
         User.find({}).exec((err, users) => {
             if (err) return res.status(500).send({ message: 'Error al devolver los datos' })
 
@@ -48,7 +51,7 @@ var controller = {
         })
 
     },
-    updateUser: function (req, res) {
+    updateUser: function(req, res) {
         var userId = req.params.id;
         var update = req.body;
 
@@ -62,7 +65,7 @@ var controller = {
             })
         })
     },
-    deleteUser: function (req, res) {
+    deleteUser: function(req, res) {
         var userId = req.params.id;
 
         User.findByIdAndDelete(userId, (err, userRemoved) => {
