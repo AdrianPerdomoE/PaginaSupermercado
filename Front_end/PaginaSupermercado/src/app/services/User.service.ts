@@ -17,9 +17,9 @@ export class UserService{
         return this._http.post(`${this.url}USave`, params, {headers:headers})
     }
 
-    getUser(UserName:string):Observable<any>{
+    getUsers():Observable<any>{
         let headers = new HttpHeaders().set("Content-Type", "application/json");
-        return this._http.get(`${this.url}user/${UserName}`, {headers:headers});
+        return this._http.get(`${this.url}users`, {headers:headers});
     }
 
     updateUser(user:User): Observable<any>{

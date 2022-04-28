@@ -22,7 +22,8 @@ export class RegistrarComponent implements OnInit {
   ngOnInit(): void {
   }
   onRegistry(userForm:any){
-    this._userService.registerUser(this.user).subscribe(
+    this.savedUser = this.user
+    this._userService.registerUser(this.savedUser).subscribe(
       response =>{
         if(response){
           this.status = "Success";
@@ -33,6 +34,7 @@ export class RegistrarComponent implements OnInit {
         userForm.reset()
       }
     )
+    
   }
 
 }
