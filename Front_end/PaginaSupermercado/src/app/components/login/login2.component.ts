@@ -11,14 +11,14 @@ import { UserService } from 'src/app/services/User.service';
 })
 export class LoginComponent2 implements OnInit{
     public user: User
-    list<user> usuarios;
+    let users: User[] = [];
     constructor(
         private _auth: AutenticationService,
-        private _userService : UserService
     ){
+        private _userService = UserService
     }
     
-    ngOnInit():void{
+    ngOnInit(){
         this._userService.getUsers().subscribe(
             response=>{
                 this.usuarios = response.users;
@@ -27,7 +27,7 @@ export class LoginComponent2 implements OnInit{
     login(userForm:any){
         this._userService.getUser()
     }
-    VerificarUser(usernaeme, password){
+    VerificarUser(username, password){
         usuarios.forEach(usuario => {
             if(usuario.usermane == usernaeme && usuario.pass == password){
                 return usuario;
