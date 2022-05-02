@@ -14,6 +14,8 @@ export class ProductosComponent implements OnInit {
   public products: Product[];
   public url: string;
   public status: string;
+  public search: string;
+  public allProducts: any;
   constructor(
     private _productService: ProductService,
     private _router: Router,
@@ -21,10 +23,11 @@ export class ProductosComponent implements OnInit {
     this.products = [];
     this.url = Global.url;
     this.status = "";
+    this.search=" "
   }
 
   ngOnInit(): void {
-    this.getProjects();
+    this.Loadproduct()
   }
   getProjects() {
     this._productService.getProducts().subscribe(
@@ -34,5 +37,17 @@ export class ProductosComponent implements OnInit {
         }
       }
     );
+  }
+  Loadproduct(){
+    const filter = (typeof this.search == 'string' && this.search.length > 0) ? `?searchBy=${this.search}` : ''
+    this._productService.getAll(filter).subscribe(
+      (Product)=>{
+        this.allProducts = Product
+      },
+      (error)=> {
+        console.error(`Error ->`, error)
+      }
+
+    )
   }
 }

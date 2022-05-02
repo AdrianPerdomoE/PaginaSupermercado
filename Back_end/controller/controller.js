@@ -1,7 +1,7 @@
 "use strict"
 var Product = require("../models/Product");
 var fs = require("fs");
-const {exists} = require("../models/Product");
+const {exists, modelName} = require("../models/Product");
 var path = require("path");
 var controller = {
     saveProduct:(req,res)=>{
@@ -113,6 +113,11 @@ var controller = {
             }
         });
     }
+    exports.getAll = (req, res) => {
+        
+        let productonombre = new RegExp(`.*${req.query.searchBy}|| ''}.*`)
+        ProductosModel.find({nombre: productonombre})
+}
 };
 
 module.exports = controller;
