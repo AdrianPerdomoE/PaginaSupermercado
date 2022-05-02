@@ -1,14 +1,17 @@
-<button (click)="loginAdmin()">
-    Admin
-</button>
-<button (click)="loginNoAdmin()">
-    NoAdmin
-</button>
+<div class="message Success" *ngIf="Inicio =='Success'">Inicio de sesion correcto</div>
 
-<form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+<form #loginForm="ngForm">
     <div>
         <label for="UserName">Nombre de Usuario</label>
-        <input name="UserName" type="text" #UserName="ngModel" [(ngModel)]="user.UserName" required>
+        <input name="UserName" type="text" #UserName="ngModel" [(ngModel)]="username" required>
         <span *ngIf="UserName.touched && !UserName.value" class="formError">Este campo es obligatorio</span>
     </div>
+    <div>
+        <label for="password">Contraseña</label>
+        <input name="password" type="text" #password="ngModel" [(ngModel)]="Password" required>
+        <span *ngIf="password.touched && !password.value" class="formError">Este campo es obligatorio</span>
+    </div>
 </form>
+<button (click)="onSubmit(UserName, password)">
+    Log In
+</button>

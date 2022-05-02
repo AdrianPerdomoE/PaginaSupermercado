@@ -10,6 +10,7 @@ import { CarritoComponent } from './components/carrito/carrito.component';
 import { ProductosAdminComponent } from './components/productos-admin/productos-admin.component';
 import { AdminGuard } from './guards/admin.guard';
 import { LoginComponent } from './components/login/login.component';
+import { RegistrarComponent } from './components/registrar/registrar.component';
 
 //Añadir ruta a la lista
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: "EditarProducto/:id", component: EditarProductoComponent, canActivate: [AdminGuard] },
   { path: "CarritoCompra", component: CarritoComponent },
   { path: "ProductosAdmin", component: ProductosAdminComponent, canActivate: [AdminGuard] },
+  { path: "Registrarse", component: RegistrarComponent},
   { path: "**", component: ErrorComponent }
 ];
 
