@@ -27,5 +27,6 @@
             <input name="direccion" type="text" #direccion="ngModel" [(ngModel)]="user.direccion" required>
             <span *ngIf="direccion.touched && !direccion.value" class="formError">Este campo es obligatorio</span>
         </div>
+        <input type="submit" value="Enviar" [disabled]="!userForm.form.valid">
     </form>
 </div>

@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit{
         let respuesta: any
         respuesta = this.VerifyUser(username, password)
         if(respuesta != null){
-            if(respuesta.rol == "admin"){
+            if(respuesta.rol == "ADMIN"){
                 this.loginAdmin(respuesta)
             }
             else if(respuesta.rol == "cliente"){
