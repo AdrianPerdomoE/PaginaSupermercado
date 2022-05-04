@@ -18,7 +18,7 @@ router.put("/UpdateProduct/:id", productController.updateProduct);
 router.delete("/DeleteProduct/:id", productController.deleteProduct);
 router.post("/UploadImagen/:id", multipartMiddleWare, productController.uploadImagen);
 router.get("/GetImagen/:image", productController.getImageFile);
-
+router.get("/GetAll/:searchBy", productController.getAll);
 //Rutas para el usuario
 router.post('/USave', userController.saveUser);
 router.get('/user/:id', userController.getUser);

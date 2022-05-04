@@ -3,6 +3,7 @@ import { Product } from 'src/app/models/Product';
 import { ProductService } from 'src/app/services/Product.service';
 import { Global } from 'src/app/services/Global';
 import { Router } from '@angular/router';
+import { filter } from 'rxjs';
 @Component({
   selector: 'productos',
   templateUrl: './productos.component.html',
@@ -15,7 +16,6 @@ export class ProductosComponent implements OnInit {
   public url: string;
   public status: string;
   public search: string;
-  public allProducts: any;
   constructor(
     private _productService: ProductService,
     private _router: Router,
@@ -23,11 +23,11 @@ export class ProductosComponent implements OnInit {
     this.products = [];
     this.url = Global.url;
     this.status = "";
-    this.search=" "
+    this.search="Lacteo"
   }
 
   ngOnInit(): void {
-    this.Loadproduct()
+    this.getProjects()
   }
   getProjects() {
     this._productService.getProducts().subscribe(
@@ -39,15 +39,20 @@ export class ProductosComponent implements OnInit {
     );
   }
   Loadproduct(){
-    const filter = (typeof this.search == 'string' && this.search.length > 0) ? `?searchBy=${this.search}` : ''
+    let filter = ""
+    if (this.search.length > 0){
+      filter = this.search
+    }
+    else{
+      return
+    }
     this._productService.getAll(filter).subscribe(
-      (Product)=>{
-        this.allProducts = Product
-      },
-      (error)=> {
-        console.error(`Error ->`, error)
+      response=>{
+        if (response.products) {
+          console.log(this.search)
+          this.products = response.products;
+        }
       }
-
     )
   }
 }

@@ -112,12 +112,20 @@ var controller = {
                 return res.status(200).send({msg:"No existe la imagen..."});
             }
         });
-    }
-    exports.getAll = (req, res) => {
+    },
+    getAll : (req, res) => {
         
-        let productonombre = new RegExp(`.*${req.query.searchBy}|| ''}.*`)
-        ProductosModel.find({nombre: productonombre})
-}
+        let productotipo = req.params.searchBy
+        Product.find({projection:{tipo:productotipo}}).exec((err,products)=>{
+            if(err){
+                return res.status(500).send({msg:"Ha ocurrido un error cargando los productos"});
+            }
+            if(!products){
+                return res.status(404).send({msg:"No existen productos"});
+            }
+            return res.status(200).send({products});
+        });
+    }
 };
 
 module.exports = controller;
