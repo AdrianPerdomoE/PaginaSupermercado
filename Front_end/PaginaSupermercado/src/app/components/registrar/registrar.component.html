@@ -1,0 +1,32 @@
+<div class="userForm">
+    <h2>Registrarse</h2>
+    <div class="message Success" *ngIf="status == 'Success'">Registrado!</div>
+    <form #userForm="ngForm" (ngSubmit)="onRegistry(userForm)">
+        <div>
+            <label for="nombre">Nombre</label>
+            <input name="nombre" type="text" #nombre="ngModel" [(ngModel)]="user.nombre" required>
+            <span *ngIf="nombre.touched && !nombre.value" class="formError">Este campo es obligatorio</span>
+        </div>
+        <div>
+            <label for="UserName">Nombre de Usuario</label>
+            <input name="UserName" type="text" #username="ngModel" [(ngModel)]="user.UserName" required>
+            <span *ngIf="username.touched && !username.value" class="formError">Este campo es obligatorio</span>
+        </div>
+        <div>
+            <label for="password">Contraseña</label>
+            <input name="password" type="text" #password="ngModel" [(ngModel)]="user.Password" required>
+            <span *ngIf="password.touched && !password.value" class="formError">Este campo es obligatorio</span>
+        </div>
+        <div>
+            <label for="edad">Edad</label>
+            <input name="edad" type="text" #edad="ngModel" [(ngModel)]="user.edad" required>
+            <span *ngIf="edad.touched && !edad.value" class="formError">Este campo es obligatorio</span>
+        </div>
+        <div>
+            <label for="direccion">Dirección</label>
+            <input name="direccion" type="text" #direccion="ngModel" [(ngModel)]="user.direccion" required>
+            <span *ngIf="direccion.touched && !direccion.value" class="formError">Este campo es obligatorio</span>
+        </div>
+        <input type="submit" value="Enviar" [disabled]="!userForm.form.valid">
+    </form>
+</div>

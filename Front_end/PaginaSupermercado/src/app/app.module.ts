@@ -20,6 +20,8 @@ import { AdminGuard } from './guards/admin.guard';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CarritoItemComponent } from './components/carrito-item/carrito-item.component';
 import { LogoComponent } from './components/logo/logo.component';
+import { RegistrarComponent } from './components/registrar/registrar.component';
+import { UserService } from './services/User.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,8 @@ import { LogoComponent } from './components/logo/logo.component';
     LoginComponent,
     NavbarComponent,
     CarritoItemComponent,
-    LogoComponent
+    LogoComponent,
+    RegistrarComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,7 @@ import { LogoComponent } from './components/logo/logo.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
