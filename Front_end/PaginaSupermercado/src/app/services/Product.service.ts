@@ -37,4 +37,9 @@ export class ProductService{
         let headers = new HttpHeaders().set("Content-Type","application/json");
         return this._http.put(`${this.url}UpdateProduct/${product._id}`,params,{headers:headers});
     }
+    getAll(filter:any): Observable<any>{
+        let headers = new HttpHeaders().set("Content-Type","application/json");
+        return this._http.get(`${this.url}GetAll/${filter}`,{headers:headers})
+        //localhost:3000/product/getAll?searchBy=hghgh
+    }
 }

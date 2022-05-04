@@ -1,7 +1,7 @@
 "use strict"
 var Product = require("../models/Product");
 var fs = require("fs");
-const {exists} = require("../models/Product");
+const {exists, modelName} = require("../models/Product");
 var path = require("path");
 var controller = {
     saveProduct:(req,res)=>{
@@ -111,6 +111,19 @@ var controller = {
             else{
                 return res.status(200).send({msg:"No existe la imagen..."});
             }
+        });
+    },
+    getAll : (req, res) => {
+        
+        let productotipo = req.params.searchBy
+        Product.find({projection:{tipo:productotipo}}).exec((err,products)=>{
+            if(err){
+                return res.status(500).send({msg:"Ha ocurrido un error cargando los productos"});
+            }
+            if(!products){
+                return res.status(404).send({msg:"No existen productos"});
+            }
+            return res.status(200).send({products});
         });
     }
 };
