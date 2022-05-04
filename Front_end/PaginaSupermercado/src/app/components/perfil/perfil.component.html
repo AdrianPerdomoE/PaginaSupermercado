@@ -1,0 +1,8 @@
+<div *ngIf="UsuarioConectado" class="container">
+    <h1>Nombre: {{UsuarioConectado.nombre}}</h1>
+    <h3>Nombre de usuario: {{UsuarioConectado.UserName}}</h3>
+    <label>contraseña actual: </label>
+    <input type="text" #password [(ngModel)]="UsuarioConectado.Password">
+
+    <button (click)="Cambiarpassword()">Cambiar contraseña</button>
+</div>

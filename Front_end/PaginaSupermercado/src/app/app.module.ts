@@ -22,6 +22,7 @@ import { CarritoItemComponent } from './components/carrito-item/carrito-item.com
 import { LogoComponent } from './components/logo/logo.component';
 import { RegistrarComponent } from './components/registrar/registrar.component';
 import { UserService } from './services/User.service';
+import { PerfilComponent } from './components/perfil/perfil.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,8 @@ import { UserService } from './services/User.service';
     NavbarComponent,
     CarritoItemComponent,
     LogoComponent,
-    RegistrarComponent
+    RegistrarComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

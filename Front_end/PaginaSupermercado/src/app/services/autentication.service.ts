@@ -8,11 +8,13 @@ import { User } from '../models/user';
 export class AutenticationService {
   private _user?: User = undefined;
   isAdmin = new BehaviorSubject(false);
+  isClient = new BehaviorSubject(false);
   get user(): User { return this._user ?? (JSON.parse(sessionStorage.getItem("loginUser") ?? "")); }
   set user(value: User) {
     sessionStorage.setItem("loginUser", JSON.stringify(value));
     this._user = value;
     this.isAdmin.next(value.rol == "ADMIN");
+    this.isClient.next(value.rol == "CLIENTE");
   }
   constructor() { }
 }

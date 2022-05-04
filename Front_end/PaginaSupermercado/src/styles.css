@@ -1,7 +1,8 @@
 body {
-    background-color: beige;
+    background-color: rgb(251, 251, 8);
     padding: 0;
     margin: 0;
+    font-family: cursive;
 }
 
 ul {
@@ -9,7 +10,7 @@ ul {
 }
 
 .container {
-    background-color: azure;
+    background-color: rgb(244, 243, 236);
     width: 70%;
     margin-inline: auto;
     margin-bottom: 1rem;
@@ -35,11 +36,13 @@ footer {
     height: 8rem;
 }
 
-.productForm {
+.productForm,
+.UserForm {
     margin-left: 3rem;
 }
 
-.productForm label {
+.productForm label,
+.UserForm label {
     display: block;
     margin: 0.5rem 0 0.5rem;
 }

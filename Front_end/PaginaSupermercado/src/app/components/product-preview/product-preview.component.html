@@ -1,5 +1,5 @@
 <div *ngIf="product.cantidad > 0">
-    <div class="product" (click)="clicked=!clicked">
+    <div class="product">
 
         <div class="imagen">
             <img src="{{url+'GetImagen/'+product.imagen}}" *ngIf="product.imagen">
@@ -9,10 +9,12 @@
         </h3>
 
         <p>TIPO: {{product.tipo}}</p>
-        <p>{{product.caracteristicas}}</p>
-        <p>CANTIDAD DISPONIBLE: {{product.cantidad}}</p>
+        <div *ngIf="SeeMore">
+            <p>{{product.caracteristicas}}</p>
+            <p>CANTIDAD DISPONIBLE: {{product.cantidad}}</p>
+        </div>
         <p class="precio">PRECIO: {{product.precio}} $</p>
-
+        <button (click)="SeeMore =!SeeMore;clicked=!clicked ">{{!SeeMore? "Ver mas":"Ocultar"}}</button>
     </div>
     <div *ngIf="clicked">
         <form #Form>

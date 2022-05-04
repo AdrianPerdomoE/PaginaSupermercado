@@ -23,7 +23,7 @@ export class ProductosComponent implements OnInit {
     this.products = [];
     this.url = Global.url;
     this.status = "";
-    this.search="Lacteo"
+    this.search = ""
   }
 
   ngOnInit(): void {
@@ -38,18 +38,18 @@ export class ProductosComponent implements OnInit {
       }
     );
   }
-  Loadproduct(){
+  Loadproduct() {
     let filter = ""
-    if (this.search.length > 0){
+    if (this.search.length > 0) {
       filter = this.search
     }
-    else{
-      return
+    else {
+      this.getProjects()
+      return;
     }
     this._productService.getAll(filter).subscribe(
-      response=>{
+      response => {
         if (response.products) {
-          console.log(this.search)
           this.products = response.products;
         }
       }

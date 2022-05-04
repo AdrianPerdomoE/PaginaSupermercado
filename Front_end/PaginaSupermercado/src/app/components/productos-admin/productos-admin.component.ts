@@ -13,12 +13,15 @@ export class ProductosAdminComponent implements OnInit {
   @Input() Admin: boolean | undefined;
   public products: Product[];
   public url: string;
+  public search: string;
   constructor(
     private _productService: ProductService,
     private _router: Router,
+
   ) {
     this.products = [];
     this.url = Global.url;
+    this.search = ""
   }
 
   ngOnInit(): void {
@@ -37,6 +40,24 @@ export class ProductosAdminComponent implements OnInit {
 
     this._router.navigate([`/Producto/${id}`]);
 
+  }
+  Loadproduct() {
+    let filter = ""
+    if (this.search.length > 0) {
+      filter = this.search
+    }
+    else {
+      this.getProjects()
+      return;
+    }
+    this._productService.getAll(filter).subscribe(
+      response => {
+        if (response.products) {
+
+          this.products = response.products;
+        }
+      }
+    )
   }
 }
 

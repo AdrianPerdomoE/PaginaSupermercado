@@ -1,5 +1,14 @@
 <div class="container">
     <h2>Productos</h2>
+    <div class="row">
+        <div class="col-3">
+            <p>Buscar producto por tipo </p>
+        </div>
+        <div class="col-9">
+            <input arial-label="Search" type="search" placeholder="Buscar producto" class="form-control"
+                (keyup)="Loadproduct()" [(ngModel)]="search">
+        </div>
+    </div>
     <ul class="products">
         <li *ngFor="let product of products">
             <div (dblclick)=" NavigateToProduct(product._id)" #product>

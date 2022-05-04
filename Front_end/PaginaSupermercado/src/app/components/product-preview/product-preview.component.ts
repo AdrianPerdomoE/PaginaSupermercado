@@ -11,6 +11,7 @@ export class ProductPreviewComponent implements OnInit {
   @Input() product!: Product; //obligatorio
   public url;
   public clicked: boolean = false;
+  public SeeMore: boolean = false;
   constructor(
     public carService: CarServicesService
   ) {

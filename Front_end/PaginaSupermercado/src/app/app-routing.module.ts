@@ -11,6 +11,7 @@ import { ProductosAdminComponent } from './components/productos-admin/productos-
 import { AdminGuard } from './guards/admin.guard';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrarComponent } from './components/registrar/registrar.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 //Añadir ruta a la lista
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: "EditarProducto/:id", component: EditarProductoComponent, canActivate: [AdminGuard] },
   { path: "CarritoCompra", component: CarritoComponent },
   { path: "ProductosAdmin", component: ProductosAdminComponent, canActivate: [AdminGuard] },
-  { path: "Registrar", component: RegistrarComponent},
+  { path: "Registrar", component: RegistrarComponent },
+  { path: "Perfil", component: PerfilComponent },
   { path: "**", component: ErrorComponent }
 ];
 

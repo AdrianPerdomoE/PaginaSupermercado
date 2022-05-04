@@ -5,28 +5,33 @@ import { User } from "../models/user";
 import { Global } from "./Global";
 
 @Injectable()
-export class UserService{
+export class UserService {
     public url: string;
-    constructor(private _http:HttpClient){
+    constructor(private _http: HttpClient) {
         this.url = Global.url;
     }
 
-    registerUser(user: User): Observable<any>{
+    registerUser(user: User): Observable<any> {
         let params = JSON.stringify(user)
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
-        return this._http.post(`${this.url}USave`, params, {headers:headers})
+        return this._http.post(`${this.url}USave`, params, { headers: headers })
     }
 
-    getUsers():Observable<any>{
+    getUsers(): Observable<any> {
         let headers = new HttpHeaders().set("Content-Type", "application/json");
-        return this._http.get(`${this.url}users`, {headers:headers});
+        return this._http.get(`${this.url}users`, { headers: headers });
     }
 
-    updateUser(user:User): Observable<any>{
+    getUser(userName: string): Observable<any> {
+        let headers = new HttpHeaders().set("Content-Type", "application/json");
+        return this._http.get(`${this.url}user/${userName}`, { headers: headers });
+    }
+
+    updateUser(user: User): Observable<any> {
         let params = JSON.stringify(user)
         let headers = new HttpHeaders().set("Content-Type", "application/json");
-        return this._http.put(`${this.url}user/${user._id}`, params, {headers:headers});
+        return this._http.put(`${this.url}user/${user._id}`, params, { headers: headers });
     }
 
-    
+
 }
