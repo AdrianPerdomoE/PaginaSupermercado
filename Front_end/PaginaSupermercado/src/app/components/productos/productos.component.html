@@ -1,12 +1,12 @@
 <div class="container">
-    <h2>Productos</h2>
-    <div class="row">
-        <div class="col-3">
+    <h2 class="title">Productos</h2>
+    <div class="Buscador">
+        <div>
             <p>Buscar producto por tipo </p>
         </div>
         <div class="col-9">
-            <input arial-label="Search" type="search" placeholder="Buscar producto" class="form-control" (keyup)="Loadproduct()" 
-            [(ngModel)]="search" >
+            <input arial-label="Search" type="search" placeholder="Buscar producto" class="form-control"
+                (keyup)="Loadproduct()" [(ngModel)]="search">
         </div>
     </div>
     <ul class="products">

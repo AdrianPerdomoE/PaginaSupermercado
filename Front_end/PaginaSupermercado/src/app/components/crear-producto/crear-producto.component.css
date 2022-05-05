@@ -1,0 +1,11 @@
+.productForm {
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    display: flex;
+    margin: 0;
+    margin-inline: auto;
+    width: 50%;
+}

@@ -1,27 +1,31 @@
-<div *ngIf="product.cantidad > 0">
-    <div class="product">
+<div class="container">
+    <div *ngIf="product.cantidad > 0">
+        <div class="product">
 
-        <div class="imagen">
-            <img src="{{url+'GetImagen/'+product.imagen}}" *ngIf="product.imagen">
-        </div>
-        <h3>
-            {{product.nombre}}
-        </h3>
+            <div class="imagen">
+                <img src="{{url+'GetImagen/'+product.imagen}}" *ngIf="product.imagen">
+            </div>
+            <h3>
+                {{product.nombre}}
+            </h3>
 
-        <p>TIPO: {{product.tipo}}</p>
-        <div *ngIf="SeeMore">
-            <p>{{product.caracteristicas}}</p>
-            <p>CANTIDAD DISPONIBLE: {{product.cantidad}}</p>
+            <p>TIPO: {{product.tipo}}</p>
+            <div *ngIf="SeeMore">
+                <p>{{product.caracteristicas}}</p>
+                <p>CANTIDAD DISPONIBLE: {{product.cantidad}}</p>
+            </div>
+            <p class="precio">PRECIO: {{product.precio}} $</p>
+            <button (click)="SeeMore =!SeeMore;clicked=!clicked ">{{!SeeMore? "Ver mas":"Ocultar"}}</button>
+            <div *ngIf="clicked">
+                <form #Form>
+                    <label>Cantidad</label>
+                    <input type="number" #cantidad min="1" max={{product.cantidad}}
+                        (blur)="ajustarValorCantidad(cantidad)">
+                    <button *ngIf="cantidad.valueAsNumber > 0"
+                        (click)="carService.addToCar(product,cantidad.valueAsNumber)">Agregar a carito</button>
+                </form>
+            </div>
         </div>
-        <p class="precio">PRECIO: {{product.precio}} $</p>
-        <button (click)="SeeMore =!SeeMore;clicked=!clicked ">{{!SeeMore? "Ver mas":"Ocultar"}}</button>
-    </div>
-    <div *ngIf="clicked">
-        <form #Form>
-            <label>Cantidad</label>
-            <input type="number" #cantidad min="1" max={{product.cantidad}} (blur)="ajustarValorCantidad(cantidad)">
-            <button *ngIf="cantidad.valueAsNumber > 0"
-                (click)="carService.addToCar(product,cantidad.valueAsNumber)">Agregar a carito</button>
-        </form>
+
     </div>
 </div>

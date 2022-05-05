@@ -1,6 +1,6 @@
 .CajaLinks {
     display: inline-flex;
-    background-color: #e18c0d;
+    background: color #f26a1b;
     height: 4rem;
     width: 100%;
 }
@@ -8,18 +8,16 @@
 .CajaLinks li {
     list-style: none;
     width: 10rem;
-    background-color: rgb(198, 136, 12);
-    border: solid 0.1rem azure;
+    background-color: #f2610d;
+    border: solid 0.1rem #f2cb05;
     text-align: center;
-
 
 }
 
 .CajaLinks li a.actived {
-    background-color: rgb(240, 170, 21);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: #e97c3cfb;
+
+
 }
 
 .CajaLinks li a {
@@ -27,4 +25,8 @@
     text-decoration: none;
     display: block;
     height: 3.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
