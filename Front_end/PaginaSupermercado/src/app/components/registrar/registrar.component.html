@@ -23,7 +23,7 @@
         </div>
         <div>
             <label for="edad">Edad</label>
-            <input name="edad" type="text" #edad="ngModel" [(ngModel)]="user.edad" required>
+            <input name="edad" type="number" #edad="ngModel" [(ngModel)]="user.edad" required>
             <span *ngIf="edad.touched && !edad.value" class="formError">Este campo es obligatorio</span>
         </div>
         <div>
