@@ -23,6 +23,7 @@ import { LogoComponent } from './components/logo/logo.component';
 import { RegistrarComponent } from './components/registrar/registrar.component';
 import { UserService } from './services/User.service';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { PagarComponent } from './components/pagar/pagar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { PerfilComponent } from './components/perfil/perfil.component';
     CarritoItemComponent,
     LogoComponent,
     RegistrarComponent,
-    PerfilComponent
+    PerfilComponent,
+    PagarComponent
   ],
   imports: [
     BrowserModule,

@@ -12,7 +12,7 @@ import { AdminGuard } from './guards/admin.guard';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrarComponent } from './components/registrar/registrar.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
-
+import { PagarComponent } from './components/pagar/pagar.component';
 //Añadir ruta a la lista
 const routes: Routes = [
   { path: "", redirectTo: "Productos", pathMatch: "full" },
@@ -25,6 +25,7 @@ const routes: Routes = [
   { path: "ProductosAdmin", component: ProductosAdminComponent, canActivate: [AdminGuard] },
   { path: "Registrar", component: RegistrarComponent },
   { path: "Perfil", component: PerfilComponent },
+  { path: "Pagar", component: PagarComponent },
   { path: "**", component: ErrorComponent }
 ];
 

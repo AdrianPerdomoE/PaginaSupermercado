@@ -33,8 +33,6 @@ export class CarritoComponent implements OnInit {
 
   pagar() {
     this.carService.removeCarItems();
-    alert("Pago realizado efectivamente")
-    location.reload();
-
+    this._router.navigate(['/Pagar']);
   }
 }
