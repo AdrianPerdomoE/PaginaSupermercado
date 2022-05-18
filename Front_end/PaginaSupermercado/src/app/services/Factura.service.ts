@@ -17,7 +17,7 @@ export class FacturaService {
         return this._http.post(`${this.url}SaveFactura`, params, { headers: headers });
     }
 
-    getProducts(comprador: string): Observable<any> {
+    getProducts(comprador: string = ""): Observable<any> {
         let headers = new HttpHeaders().set("Content-Type", "application/json");
         return this._http.get(`${this.url}GetFacturas/${comprador}`, { headers: headers });
     }

@@ -30,5 +30,5 @@ router.delete('/user/:id', userController.deleteUser);
 //Rutas para facturas
 router.post('/SaveFactura', facturaController.saveFactura);
 router.get('/GetFactura/:_id', facturaController.getFactura);
-router.get('/GetFacturas/:comprador', facturaController.getfacturas);
+router.get('/GetFacturas/:comprador?', facturaController.getfacturas);
 module.exports = router;

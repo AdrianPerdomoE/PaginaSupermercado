@@ -39,14 +39,25 @@ var controller = {
     },
     getfacturas: function (req, res) {
         var comprador = req.params.comprador;
-        Factura.find({ comprador: comprador }).exec((err, facturas) => {
-            if (err) return res.status(500).send({ message: 'Error al devolver los datos' })
+        if (comprador) {
+            Factura.find({ comprador: comprador }).exec((err, facturas) => {
+                if (err) return res.status(500).send({ message: 'Error al devolver los datos' })
 
-            if (!facturas) return res.status(404).send({ message: 'No hay facturas para mostrar' })
+                if (!facturas) return res.status(404).send({ message: 'No hay facturas para mostrar' })
 
-            return res.status(200).send({ facturas });
-        })
+                return res.status(200).send({ facturas });
+            })
 
+        }
+        else {
+            Factura.find({}).exec((err, facturas) => {
+                if (err) return res.status(500).send({ message: 'Error al devolver los datos' })
+
+                if (!facturas) return res.status(404).send({ message: 'No hay facturas para mostrar' })
+
+                return res.status(200).send({ facturas });
+            })
+        }
     }
 }
 module.exports = controller
