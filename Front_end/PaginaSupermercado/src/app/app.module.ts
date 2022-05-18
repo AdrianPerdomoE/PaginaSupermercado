@@ -24,6 +24,7 @@ import { RegistrarComponent } from './components/registrar/registrar.component';
 import { UserService } from './services/User.service';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { PagarComponent } from './components/pagar/pagar.component';
+import { FacturaService } from './services/Factura.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,7 @@ import { PagarComponent } from './components/pagar/pagar.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [ProductService, UserService],
+  providers: [ProductService, UserService, FacturaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -21,7 +21,8 @@ export class CarServicesService {
         nombre: product.nombre,
         cantidad: cantidad,
         precio: product.precio,
-        imagen: product.imagen
+        imagen: product.imagen,
+        codigo: product.codigo
       };
       localStorage.setItem(product.nombre, JSON.stringify(carItem));
     }
@@ -47,7 +48,7 @@ export class CarServicesService {
   }
 
   takeOutCarItem(carItem: CarItem, cantidad: number): void {
-    var product = new Product("", "", "", 0, 0, "", "");
+    var product = new Product("", "", "", 0, 0, "", "", 0);
     this._productService.getProduct(carItem._id).subscribe(
       response => {
         product = response.product;

@@ -11,7 +11,8 @@
     </div>
     <ul class="products">
         <li *ngFor="let product of products">
-            <div (dblclick)=" NavigateToProduct(product._id)" #product>
+            <div>
+                <button class="bttn-edit" (click)=" NavigateToProduct(product._id)">Editar</button>
                 <app-product-preview [product]="product"></app-product-preview>
             </div>
         </li>

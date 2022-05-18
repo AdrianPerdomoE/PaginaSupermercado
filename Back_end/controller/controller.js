@@ -1,7 +1,7 @@
 "use strict"
 var Product = require("../models/Product");
 var fs = require("fs");
-const { exists, modelName } = require("../models/Product");
+const { exists } = require("../models/Product");
 var path = require("path");
 var controller = {
     saveProduct: (req, res) => {
@@ -12,6 +12,7 @@ var controller = {
         product.precio = params.precio;
         product.caracteristicas = params.caracteristicas;
         product.cantidad = params.cantidad;
+        product.codigo = params.codigo;
         product.imagen = null;
         product.save((err, productStored) => {
             if (err) {
@@ -115,7 +116,7 @@ var controller = {
     },
     getAll: (req, res) => {
 
-        let productotipo = new RegExp(`${req.params.searchBy}`)
+        let productotipo = new RegExp(`${req.params.searchBy}`, "i")
         Product.find({ tipo: productotipo }).exec((err, products) => {
             if (err) {
                 return res.status(500).send({ msg: "Ha ocurrido un error cargando los productos" });

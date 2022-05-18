@@ -19,7 +19,7 @@ export class ProductoComponent implements OnInit {
     private _route: ActivatedRoute
   ) {
     this.url = Global.url;
-    this.product = new Product("", "", "", 0, 0, "", "");
+    this.product = new Product("", "", "", 0, 0, "", "", 0);
     this.confirm = false;
   }
 
