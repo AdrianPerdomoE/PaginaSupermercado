@@ -2,7 +2,7 @@
 var User = require('../models/Usuario');
 
 var controller = {
-    saveUser: (req, res) => {
+    saveUser: (req, res) => { // Metodo para guardar la cuenta de un usuario al sistema
         let usuario = new User();
         var params = req.body;
         usuario.nombre = params.nombre;
@@ -22,7 +22,7 @@ var controller = {
         })
 
     },
-    getUser: function (req, res) {
+    getUser: function (req, res) { // Metodo para obtener una cuenta de un usuario en especifico
         var UserName = req.params.UserName;
 
         if (!UserName) {
@@ -42,7 +42,7 @@ var controller = {
 
         })
     },
-    getUsers: function (req, res) {
+    getUsers: function (req, res) { 
         User.find({}).exec((err, users) => {
             if (err) return res.status(500).send({ message: 'Error al devolver los datos' })
 
@@ -52,7 +52,7 @@ var controller = {
         })
 
     },
-    updateUser: function (req, res) {
+    updateUser: function (req, res) { // Metodo para actualiza los parametros de las cuentas de los usuarios
         var userId = req.params.id;
         var update = req.body;
 
@@ -66,7 +66,7 @@ var controller = {
             })
         })
     },
-    deleteUser: function (req, res) {
+    deleteUser: function (req, res) { // Metodo para borrar la cuenta de un usuario
         var userId = req.params.id;
 
         User.findByIdAndDelete(userId, (err, userRemoved) => {

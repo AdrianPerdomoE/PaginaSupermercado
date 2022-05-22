@@ -30,7 +30,7 @@ export class RegistrarComponent implements OnInit {
       }
     )
   }
-  VerificarNickUnico() {
+  VerificarNickUnico() { 
     let count = 0
     this.Users.forEach(usuario => {
       if (usuario.UserName == this.savedUser.UserName) {

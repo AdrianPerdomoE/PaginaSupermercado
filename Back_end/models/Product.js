@@ -4,7 +4,7 @@ var mongoose = require("mongoose");
 var esquema = mongoose.Schema;
 //creado un esquema vamos a definir su modelo
 
-var Product_esquema = esquema(
+var Product_esquema = esquema( // Parametros de la clase producto
     {
         nombre:String,
         tipo:String,

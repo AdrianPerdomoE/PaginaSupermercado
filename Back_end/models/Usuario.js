@@ -3,7 +3,7 @@
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema;
 
-var Usuario = Schema({
+var Usuario = Schema({ //Paramatros de la clase Usuario
     nombre: String,
     UserName: String,
     Password: String,

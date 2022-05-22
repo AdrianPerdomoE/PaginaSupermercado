@@ -4,7 +4,7 @@ var fs = require("fs");
 const { exists, modelName } = require("../models/Product");
 var path = require("path");
 var controller = {
-    saveProduct: (req, res) => {
+    saveProduct: (req, res) => {  //Atributos de la clase producto
         let product = new Product();
         var params = req.body;
         product.nombre = params.nombre;
@@ -13,8 +13,8 @@ var controller = {
         product.caracteristicas = params.caracteristicas;
         product.cantidad = params.cantidad;
         product.imagen = null;
-        product.save((err, productStored) => {
-            if (err) {
+        product.save((err, productStored) => {b 
+            if (err) { // Peticion para guardar un producto al inventario del supermercado
                 return res.status(500).send({ msg: "Error en la petición" });
             }
             if (!productStored) {
@@ -23,7 +23,7 @@ var controller = {
             return res.status(200).send({ msg: "Producto agregado exitosamente", product: productStored });
         });
     },
-    getProduct: (req, res) => {
+    getProduct: (req, res) => { // Peticion para obtener un producto del supermercado
         var product_id = req.params.id;
         Product.findById(product_id, (err, product) => {
             if (err) {
@@ -35,7 +35,7 @@ var controller = {
             return res.status(200).send({ product });
         });
     },
-    getProducts: (req, res) => {
+    getProducts: (req, res) => { // 
         Product.find({}).exec((err, products) => {
             if (err) {
                 return res.status(500).send({ msg: "Ha ocurrido un error cargando los productos" });
@@ -46,7 +46,7 @@ var controller = {
             return res.status(200).send({ products });
         });
     },
-    updateProduct: (req, res) => {
+    updateProduct: (req, res) => { // Metodo para actualizar la informacion o los parametros de un producto del supermercado
         var product_id = req.params.id;
         var upData = req.body;
         Product.findByIdAndUpdate(product_id, upData, { new: true }, (err, productUpDated) => {
@@ -59,7 +59,7 @@ var controller = {
             return res.status(200).send({ msg: "Producto actualizado correctamente", product: productUpDated });
         });
     },
-    deleteProduct: (req, res) => {
+    deleteProduct: (req, res) => { // Metodo para la eliminacion de un producto del supermercado en especifico
         var product_id = req.params.id;
         Product.findByIdAndRemove(product_id, (err, productDeleted) => {
             if (err) {
@@ -71,7 +71,7 @@ var controller = {
             return res.status(200).send({ msg: "Producto eliminado correctamente", product: productDeleted });
         });
     },
-    uploadImagen: (req, res) => {
+    uploadImagen: (req, res) => { // Metodo para subir la imagen del producto a la tienda
         var product_id = req.params.id;
         var fileName = "Imagen no subida...";
         if (req.files) {
