@@ -9,6 +9,8 @@ var Usuario = Schema({
     Password: String,
     edad: Number,
     direccion: String,
+    productos: Array,
+    dinero: Number,
     rol: String
 });
 
