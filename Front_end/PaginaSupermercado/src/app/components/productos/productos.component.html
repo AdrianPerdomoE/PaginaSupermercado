@@ -10,8 +10,8 @@
         </div>
     </div>
     <ul class="products">
-        <li *ngFor="let product of products">
-            <div #product>
+        <li *ngFor="let product of products ">
+            <div *ngIf="product.cantidad > 0">
                 <app-product-preview [product]="product"></app-product-preview>
             </div>
         </li>

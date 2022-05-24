@@ -1,6 +1,7 @@
 <div class="container">
     <div class="message Success" *ngIf="Inicio =='Success'">Inicio de sesion correcto</div>
     <div class="message Failed" *ngIf="Inicio =='Failed'">Inicio de sesion incorrecto</div>
+    <div class="message Failed" *ngIf="Inicio =='NombreErroneo'">Inicio de sesion incorrecto nombre no correcto</div>
     <form #loginForm="ngForm" class="UserForm">
         <div>
             <label for="UserName">Nombre de Usuario</label>

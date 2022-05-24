@@ -24,6 +24,8 @@ import { RegistrarComponent } from './components/registrar/registrar.component';
 import { UserService } from './services/User.service';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+import { PagarComponent } from './components/pagar/pagar.component';
+import { FacturaService } from './services/Factura.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +43,8 @@ import { EstadisticasComponent } from './estadisticas/estadisticas.component';
     LogoComponent,
     RegistrarComponent,
     PerfilComponent,
-    EstadisticasComponent
+    EstadisticasComponent,
+    PagarComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,7 @@ import { EstadisticasComponent } from './estadisticas/estadisticas.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [ProductService, UserService],
+  providers: [ProductService, UserService, FacturaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

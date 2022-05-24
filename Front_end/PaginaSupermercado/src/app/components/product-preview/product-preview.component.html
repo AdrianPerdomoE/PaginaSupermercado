@@ -1,5 +1,5 @@
 <div class="container">
-    <div *ngIf="product.cantidad > 0">
+    <div>
         <div class="product">
 
             <div class="imagen">
@@ -20,7 +20,7 @@
                 <form #Form>
                     <label>Cantidad</label>
                     <input type="number" #cantidad min="1" max={{product.cantidad}}
-                        (blur)="ajustarValorCantidad(cantidad)">
+                        (input)="ajustarValorCantidad(cantidad)">
                     <button *ngIf="cantidad.valueAsNumber > 0"
                         (click)="carService.addToCar(product,cantidad.valueAsNumber)">Agregar a carito</button>
                 </form>

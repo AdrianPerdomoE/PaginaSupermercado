@@ -6,6 +6,8 @@ var express = require("express");
 var productController = require("../controller/controller");
 //controladores para usuarios
 var userController = require('../controller/usersController');
+//controladores para facturas
+var facturaController = require("../controller/facturasController");
 
 var router = express.Router();
 var multipart = require("connect-multiparty");
@@ -25,4 +27,8 @@ router.get('/user/:UserName', userController.getUser);
 router.get('/users', userController.getUsers);
 router.put('/user/:id', userController.updateUser);
 router.delete('/user/:id', userController.deleteUser);
+//Rutas para facturas
+router.post('/SaveFactura', facturaController.saveFactura);
+router.get('/GetFactura/:_id', facturaController.getFactura);
+router.get('/GetFacturas/:comprador?', facturaController.getfacturas);
 module.exports = router;

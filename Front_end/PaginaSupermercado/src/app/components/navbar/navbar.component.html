@@ -15,7 +15,7 @@
     </ul>
 </ng-template>
 
-<ul *ngIf="_auth.isAdmin |async; else  _auth.isClient ? Cliente : noAdmin " class="CajaLinks">
+<ul *ngIf="_auth.isAdmin |async; else  _auth.isClient.value ? Cliente : noAdmin " class="CajaLinks">
     <app-logo></app-logo>
     <li *ngFor=" let link of LinksAdmin">
         <a [routerLink]="'/'+link" [routerLinkActive]="['actived']" class="links">{{link}}</a>

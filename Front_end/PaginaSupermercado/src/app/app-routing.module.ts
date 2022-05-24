@@ -14,6 +14,7 @@ import { RegistrarComponent } from './components/registrar/registrar.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 
+import { PagarComponent } from './components/pagar/pagar.component';
 //Añadir ruta a la lista
 const routes: Routes = [
   { path: "", redirectTo: "Productos", pathMatch: "full" },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: "Registrar", component: RegistrarComponent },
   { path: "Perfil", component: PerfilComponent },
   { path: "Estadisticas", component: EstadisticasComponent},
+  { path: "Pagar", component: PagarComponent },
   { path: "**", component: ErrorComponent }
 ];
 

@@ -1,0 +1,48 @@
+<div class="UserForm container">
+    <h2 class="title">Pagar carrito de compra</h2>
+
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+        <div #parte1 *ngIf="!continuar">
+            <div>
+                <label for="nombre">Nombre</label>
+                <input name="nombre" type="text" #nombre="ngModel" [(ngModel)]="user.nombre" required>
+                <span *ngIf="nombre.touched && !nombre.value" class="formError">Este campo es obligatorio</span>
+            </div>
+            <div>
+                <label for="edad">Edad</label>
+                <input name="edad" type="number" #edad="ngModel" [(ngModel)]="user.edad" required>
+                <span *ngIf="edad.touched && !edad.value" class="formError">Este campo es obligatorio</span>
+            </div>
+            <div>
+                <label for="direccion">Dirección</label>
+                <input name="direccion" type="text" #direccion="ngModel" [(ngModel)]="user.direccion" required>
+                <span *ngIf="direccion.touched && !direccion.value" class="formError">Este campo es obligatorio</span>
+            </div>
+            <div>
+                <h3>Medio de pago</h3>
+                <input [disabled]="medioPago>=0" #mp1 type="checkbox" (change)="medioPago = 0">
+                <label>Credito</label>
+                <input [disabled]="medioPago>=0" #mp2 type="checkbox" (change)="medioPago = 1">
+                <label>Debito</label>
+                <input [disabled]="medioPago>=0" #mp3 type="checkbox" (change)="medioPago = 2">
+                <label>Contra entrega</label>
+                <button *ngIf="medioPago>=0"
+                    (click)="medioPago=-1; mp1.checked=false ; mp2.checked=false ; mp3.checked=false">Deshacer</button>
+                <button *ngIf="(mp1.checked||mp2.checked||mp3.checked)&& userForm.form.valid"
+                    (click)="continuar= true">continuar</button>
+            </div>
+        </div>
+        <div #parte2 *ngIf="continuar">
+            <label for="correo"> correo electronico</label>
+            <input type="text" name="correo" #correo="ngModel" [(ngModel)]="email">
+            <label for="cuenta"> numero de cuenta</label>
+            <input type="text" name="cuenta" #numcuenta="ngModel" [(ngModel)]="cuenta">
+            <label for="clave"> clave</label>
+            <input type="password" name="clave" #pass="ngModel" [(ngModel)]="clave">
+            <input type="submit" value="Enviar"
+                [disabled]="!(email.length>0) || !(clave.length>0) || !(cuenta.length>0) ">
+        </div>
+
+    </form>
+    <button (click)="cancelar()">cancelar</button>
+</div>
