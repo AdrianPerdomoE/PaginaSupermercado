@@ -16,8 +16,8 @@ export class RegistrarComponent implements OnInit {
     private _userService: UserService
   ) {
     this.status = "";
-    this.user = new User("", "", "", "", 0, "", [], 0, "CLIENTE")
-    this.savedUser = new User("", "", "", "", 0, "", [], 0, "CLIENTE")
+    this.user = new User("", "", "", "", 0, "", "CLIENTE")
+    this.savedUser = new User("", "", "", "", 0, "", "CLIENTE")
     this.Users = []
   }
 

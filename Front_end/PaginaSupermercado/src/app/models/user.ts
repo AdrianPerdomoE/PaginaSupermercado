@@ -8,8 +8,6 @@ export class User {
         public Password: string,
         public edad: Number,
         public direccion: string,
-        public productos: Array<Product>,
-        public dinero: Number,
         public rol?: string,
     ) { }
 }
