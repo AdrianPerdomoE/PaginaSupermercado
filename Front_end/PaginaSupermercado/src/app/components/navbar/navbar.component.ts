@@ -15,8 +15,8 @@ export class NavbarComponent implements OnInit {
   ) {
     this.NoSesionIniciada = _auth.isAdmin && _auth.isClient
   }
-  LinksAdmin = ["Crear-Producto", "ProductosAdmin", "CarritoCompra", "Login", "Registrar", "Perfil"];
-  LinksCliente = ["Productos", "CarritoCompra", "Login", "Registrar", "Perfil"]
+  LinksAdmin = ["Crear-Producto", "ProductosAdmin", "CarritoCompra", "Login", "Registrar", "Perfil", "Estadisticas"];
+  LinksCliente = ["Productos", "CarritoCompra", "Login", "Registrar", "Perfil", "Estadisticas"]
   Links = ["Productos", "CarritoCompra", "Login", "Registrar"]
   ngOnInit(): void {
 
