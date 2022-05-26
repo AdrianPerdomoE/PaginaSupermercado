@@ -10,7 +10,7 @@ import { CarServicesService } from 'src/app/services/car-services.service';
   styleUrls: ['./carrito.component.css']
 })
 export class CarritoComponent implements OnInit {
-  public ListaCarrito?: Array<CarItem>;
+  public ListaCarrito?: Array<CarItem>; //Se guardan los items en una lista llamada ListaCarrito
   verTotal = false;
   constructor(
     private carService: CarServicesService,
@@ -20,10 +20,10 @@ export class CarritoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.ListaCarrito = this.carService.getCarItems();
+    this.ListaCarrito = this.carService.getCarItems(); //Metodo para obtener una item de ListaCarrito
   }
 
-  total() {
+  total() { //Metodo para calcular el valor total a pagar por los items que se encuentran en ListaCarrito
     var total = 0;
     this.ListaCarrito?.forEach(item => {
       total += item.precio * item.cantidad;
@@ -31,7 +31,7 @@ export class CarritoComponent implements OnInit {
     return total;
   }
 
-  pagar() {
+  pagar() {// Metodo para realizar el pago de los items que se encuentran en ListaCarrito
     this.carService.removeCarItems();
     alert("Pago realizado efectivamente")
     location.reload();
