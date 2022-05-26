@@ -1,0 +1,5 @@
+<ul *ngIf="_auth.isAdmin" class="EstadisticasProductos">
+    <li *ngFor="let factura of listaFacturas">
+        <a>{{factura.detalles}}</a>
+    </li>
+</ul>

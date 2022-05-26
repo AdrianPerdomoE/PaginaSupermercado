@@ -12,7 +12,7 @@ import { AdminGuard } from './guards/admin.guard';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrarComponent } from './components/registrar/registrar.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
-import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+import { EstadisticasComponent } from './components/estadisticas/estadisticas.component';
 
 import { PagarComponent } from './components/pagar/pagar.component';
 //Añadir ruta a la lista

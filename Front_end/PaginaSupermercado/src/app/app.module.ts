@@ -23,7 +23,7 @@ import { LogoComponent } from './components/logo/logo.component';
 import { RegistrarComponent } from './components/registrar/registrar.component';
 import { UserService } from './services/User.service';
 import { PerfilComponent } from './components/perfil/perfil.component';
-import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+import { EstadisticasComponent } from './components/estadisticas/estadisticas.component';
 import { PagarComponent } from './components/pagar/pagar.component';
 import { FacturaService } from './services/Factura.service';
 @NgModule({
