@@ -1,5 +1,20 @@
-<ul *ngIf="_auth.isAdmin" class="EstadisticasProductos">
-    <li *ngFor="let factura of listaFacturas">
-        <a>{{factura.detalles}}</a>
-    </li>
-</ul>
+<div class="container">
+    <ng-template #Cliente>
+        <h2>Dinero gastado en la tienda: {{dineroTotal}}</h2>
+        <h1>Historial de compra:</h1>
+    </ng-template>
+    <div *ngIf="_auth.isAdmin.value else Cliente">
+        <h2>Dinero ganado en la tienda: {{dineroTotal}}</h2>
+        <h1>Historial de ventas:</h1>
+    </div>
+    <ul class="EstadisticasProductos">
+        <li *ngFor="let item of items">
+            <h2>Nombre: {{item.nombre}}</h2>
+            <h3>Cantidad : {{item.cantidad}}</h3>
+            <div class="imagen">
+                <img src="{{url+'GetImagen/'+item.imagen}}">
+            </div>
+        </li>
+
+    </ul>
+</div>
