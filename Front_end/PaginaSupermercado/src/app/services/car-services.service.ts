@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { CarItem } from '../models/carItem';
 import { Product } from '../models/Product';
 import { ProductService } from './Product.service';
@@ -8,7 +9,7 @@ import { ProductService } from './Product.service';
 })
 export class CarServicesService {
 
-
+  public carUpdated$ = new Subject<string>();
   constructor(
     private _productService: ProductService
   ) { }
@@ -60,6 +61,7 @@ export class CarServicesService {
               if (response.product) {
                 if (carItem.cantidad == 0) {
                   localStorage.removeItem(carItem.nombre);
+                  this.carUpdated$.next("ItemRemoved")
                   return;
                 }
                 localStorage.setItem(carItem.nombre, JSON.stringify(carItem));
@@ -73,6 +75,7 @@ export class CarServicesService {
         );
       }
     );
+
   }
 
   getCarItems(): Array<CarItem> {

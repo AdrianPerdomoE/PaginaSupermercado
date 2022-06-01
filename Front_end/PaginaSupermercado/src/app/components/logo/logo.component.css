@@ -1,8 +1,11 @@
-.logo img {
-    position: relative;
-    top: 0;
-    left: 0;
-    margin-right: 10rem;
-    height: 4rem;
+:host {
+    height: 100%;
+}
 
+img {
+    height: 100%;
+}
+
+.logo {
+    height: 100%;
 }

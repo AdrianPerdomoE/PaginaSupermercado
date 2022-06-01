@@ -9,12 +9,13 @@
                 (keyup)="Loadproduct()" [(ngModel)]="search">
         </div>
     </div>
-    <ul class="products">
-        <li *ngFor="let product of products">
+    <div class="products">
+        <div *ngFor="let product of products">
             <div>
-                <button class="bttn-edit" (click)=" NavigateToProduct(product._id)">Editar</button>
-                <app-product-preview [product]="product"></app-product-preview>
+                <app-product-preview [product]="product">
+                    <button class="bttn-edit" (click)=" NavigateToProduct(product._id)">Editar</button>
+                </app-product-preview>
             </div>
-        </li>
-    </ul>
+        </div>
+    </div>
 </div>

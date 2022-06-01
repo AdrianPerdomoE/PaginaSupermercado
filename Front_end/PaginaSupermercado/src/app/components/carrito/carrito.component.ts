@@ -1,6 +1,6 @@
-import { Element } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subject, takeUntil } from 'rxjs';
 import { CarItem } from 'src/app/models/carItem';
 import { CarServicesService } from 'src/app/services/car-services.service';
 import { TablaIVA } from 'src/app/services/TablaIVA';
@@ -11,9 +11,16 @@ import { TablaIVA } from 'src/app/services/TablaIVA';
   templateUrl: './carrito.component.html',
   styleUrls: ['./carrito.component.css']
 })
-export class CarritoComponent implements OnInit {
+export class CarritoComponent implements OnInit, OnDestroy {
+  private unSub$ = new Subject<void>();
   public ListaCarrito?: Array<CarItem>;
   public tablaIva: Array<any>;
+  public get carritoTieneItems() {
+    if (!this.ListaCarrito) {
+      return false;
+    }
+    return this.ListaCarrito.length > 0;
+  }
   verTotal = false;
   constructor(
     private carService: CarServicesService,
@@ -22,9 +29,20 @@ export class CarritoComponent implements OnInit {
     this.ListaCarrito = undefined;
     this.tablaIva = TablaIVA;
   }
+  ngOnDestroy(): void {
+    this.unSub$.next();
+    this.unSub$.complete();
+  }
 
   ngOnInit(): void {
     this.ListaCarrito = this.carService.getCarItems();
+    this.carService.carUpdated$.pipe(takeUntil(this.unSub$)).subscribe(
+      {
+        next: () => {
+          this.ListaCarrito = this.carService.getCarItems();
+        }
+      }
+    )
 
   }
   ValorIva(item: any) {

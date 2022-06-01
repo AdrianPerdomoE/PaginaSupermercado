@@ -1,6 +1,5 @@
-<h2 class="title">{{title}}</h2>
 <div class="productForm container">
-
+    <h2 class="title">{{title}}</h2>
     <div class="message Success" *ngIf="status =='Success'">El producto ha sido creado correctamente, puedes verlo <a
             [routerLink]="['/Producto',savedProduct._id]">AQUI</a></div>
     <div class="message Failed" *ngIf="status ==' Failed'"></div>

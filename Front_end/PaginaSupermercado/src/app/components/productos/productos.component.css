@@ -1,5 +1,5 @@
 .products {
-    display: grid;
-    grid-template-columns: auto auto;
-    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }

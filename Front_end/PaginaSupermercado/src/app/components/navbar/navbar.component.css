@@ -1,3 +1,21 @@
+:host {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+app-logo {
+    position: absolute;
+    left: 0;
+    padding: 0.5rem;
+    height: 100%;
+}
+
+.nav ul {
+    padding: 0;
+}
+
 .CajaLinks {
     display: inline-flex;
     background: color #f26a1b;
@@ -9,7 +27,7 @@
     list-style: none;
     width: 10rem;
     background-color: #f2610d;
-    border: solid 0.1rem #f2cb05;
+    border: solid 0.1rem var(--gray1);
     text-align: center;
 
 }

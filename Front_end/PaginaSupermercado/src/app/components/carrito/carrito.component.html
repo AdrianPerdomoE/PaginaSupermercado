@@ -1,16 +1,18 @@
 <div class="container">
     <h2 class="title">Carrito de compra</h2>
-    <ul class="itemsCarrito">
-        <li *ngFor="let itemCarrito of ListaCarrito">
+    <div class="itemsCarrito" *ngIf="carritoTieneItems ; else mensaje ">
+        <div *ngFor="let itemCarrito of ListaCarrito">
             <div #item>
                 <app-carrito-item [itemCarrito]="itemCarrito"></app-carrito-item>
             </div>
-        </li>
-    </ul>
-
+        </div>
+    </div>
+    <ng-template #mensaje>
+        <h3>No hay productos agregadados, añada items al carrito</h3>
+    </ng-template>
 </div>
 <div class="TotalLbl">
-    <label>subTotal: {{subtotal()}}$</label>
-    <label>Total: {{total()}}$</label>
+    <label>subTotal: {{subtotal() |currency:"COP":"symbol-narrow":"1.0-0"}}</label>
+    <label>Total: {{total() |currency:"COP":"symbol-narrow":"1.0-0"}}</label>
     <button *ngIf="subtotal()> 0" (click)="pagar()">Pagar</button>
 </div>
