@@ -34,11 +34,16 @@
         </div>
         <div #parte2 *ngIf="continuar">
             <label for="correo"> correo electronico</label>
-            <input type="text" name="correo" #correo="ngModel" [(ngModel)]="email">
+            <input type="email" name="correo" #correo="ngModel" [(ngModel)]="email" placeholder="Enter an Email"
+                ng-pattern=" ^[a-z]+[a-z0-9._-]+@[a-z]+\.[a-z.]{2,5}$" />
+            <span *ngIf="correo.touched && !correo.value " class="formError">Este campo es obligatorio</span>
+            <span class="formError" *ngIf="correo.value && correo.value">Ingrese un correo valido</span>
             <label for="cuenta"> numero de cuenta</label>
             <input type="text" name="cuenta" #numcuenta="ngModel" [(ngModel)]="cuenta">
+            <span *ngIf="numcuenta.touched && !numcuenta.value" class="formError">Este campo es obligatorio</span>
             <label for="clave"> clave</label>
             <input type="password" name="clave" #pass="ngModel" [(ngModel)]="clave">
+            <span *ngIf="pass.touched && !pass.value" class="formError">Este campo es obligatorio</span>
             <input type="submit" value="Enviar"
                 [disabled]="!(email.length>0) || !(clave.length>0) || !(cuenta.length>0) ">
         </div>
