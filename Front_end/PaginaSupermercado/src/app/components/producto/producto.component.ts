@@ -37,7 +37,7 @@ export class ProductoComponent implements OnInit {
     );
   }
 
-  deleteProduct(id: string) {
+  deleteProduct(id: string) {//Hu2
     this._productService.deleteProduct(id).subscribe(
       {
         next: (response) => {

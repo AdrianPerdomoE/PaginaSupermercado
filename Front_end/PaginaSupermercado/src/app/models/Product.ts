@@ -9,4 +9,4 @@ export class Product {
         public imagen: string,
         public codigo: number
     ) { }
-}
+}//Modelo de las propiedades que contiene un producto

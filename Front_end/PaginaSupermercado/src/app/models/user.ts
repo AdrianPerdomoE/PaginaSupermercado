@@ -10,4 +10,4 @@ export class User {
         public direccion: string,
         public rol?: string,
     ) { }
-}
+}//Modelo de las propiedades de un usuario

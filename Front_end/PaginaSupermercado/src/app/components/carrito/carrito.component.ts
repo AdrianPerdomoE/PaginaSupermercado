@@ -45,7 +45,7 @@ export class CarritoComponent implements OnInit, OnDestroy {
     )
 
   }
-  ValorIva(item: any) {
+  ValorIva(item: any) {//Metodo para buscar el iva de un producto deacuerdo a su codigo relacionado con la historia de usuario Hu10
     let iva = 0;
     this.tablaIva.forEach(elem => {
       if (elem.codigo == item.codigo) {
@@ -55,7 +55,7 @@ export class CarritoComponent implements OnInit, OnDestroy {
     });
     return iva;
   }
-  total() {
+  total() {//Metodo para hallar el valor total a pagar del carrito teniendo en cuenta el valor de iva de cada producto relacionado con la historia de usuario Hu10
     var total = 0;
     this.ListaCarrito?.forEach(item => {
       let iva = this.ValorIva(item);
@@ -63,7 +63,7 @@ export class CarritoComponent implements OnInit, OnDestroy {
     });
     return total;
   }
-  subtotal() {
+  subtotal() {//Valor total de los productos sin iva incluido relacionado con la historia de usuario Hu10
     var total = 0;
     this.ListaCarrito?.forEach(item => {
       total += item.precio * item.cantidad;
@@ -72,7 +72,7 @@ export class CarritoComponent implements OnInit, OnDestroy {
   }
 
 
-  pagar() {
+  pagar() {//Metodo para redirigir al usuario al componente de pago para realizar el proceso, relacionado a la historia de usuario Hu11 y requisito RF009
     this._router.navigate(['/Pagar']);
   }
 }

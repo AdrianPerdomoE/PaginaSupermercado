@@ -14,14 +14,14 @@ export class PerfilComponent implements OnInit {
 
   constructor(private _userService: UserService, private _router: Router, private _auth: AutenticationService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {//Metodo para obtener el usuario con sesion iniciada 
     let usuario = sessionStorage.getItem("loginUser");
     if (usuario) {
       this.UsuarioConectado = JSON.parse(usuario)
     }
   }
 
-  Cambiarpassword() {
+  Cambiarpassword() {//Metodo para cambiar la contraseña del usuario, relacionado a Hu15 y RF016
     if (this.UsuarioConectado) {
       this._userService.updateUser(this.UsuarioConectado).subscribe(
         response => {
@@ -36,7 +36,7 @@ export class PerfilComponent implements OnInit {
 
   }
 
-  CerrarSesion() {
+  CerrarSesion() {//Metodo para cerrar la sesion actual
     sessionStorage.clear()
     this._auth.user = new User("", "", "", "", 0, "")
     this._router.navigate(['/Productos'])

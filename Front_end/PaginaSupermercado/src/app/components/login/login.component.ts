@@ -36,11 +36,11 @@ export class LoginComponent implements OnInit {
         })
     }
 
-    login(usuario: any) {
+    login(usuario: any) {//Metodo para asignar el usuario que ha iniciado sesion al servicio de autenticacion
         this._auth.user = usuario
     }
 
-    onSubmit() {
+    onSubmit() {//Metodo para realizar las verificacion de inicio de sesion  antes de asignar el usuario a su autenticador
         if (this.username.length == 0) {
             return;
         }

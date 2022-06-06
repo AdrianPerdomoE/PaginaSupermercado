@@ -5,8 +5,8 @@ import { Product } from '../models/Product';
 import { ProductService } from './Product.service';
 
 @Injectable({
-  providedIn: 'root',
-})
+  providedIn: 'root'
+})//este servicio nos permite manejar los elementos del carrito y su interacion con los productos en la base de datos
 export class CarServicesService {
 
   public carUpdated$ = new Subject<string>();
@@ -14,7 +14,7 @@ export class CarServicesService {
     private _productService: ProductService
   ) { }
 
-  addToCar(product: Product, cantidad: number): void {
+  addToCar(product: Product, cantidad: number): void {//Metodo para añadir una cantidad de un producto a un carrito de  compra como item carrito y disminuir esa cantidad en la propiedad del producto, esta relacionado a la historia de usuario Hu6 y el requisito RF007
     product.cantidad -= cantidad;
     if (localStorage.getItem(product.nombre) == null) {
       var carItem = {
@@ -48,7 +48,7 @@ export class CarServicesService {
     );
   }
 
-  takeOutCarItem(carItem: CarItem, cantidad: number): void {
+  takeOutCarItem(carItem: CarItem, cantidad: number): void {//Metodo para sacar una cantidad de un producto del carrito de compra, esta relacionado con la historia de usuario Hu8 y RF008
     var product = new Product("", "", "", 0, 0, "", "", 0);
     this._productService.getProduct(carItem._id).subscribe(
       response => {
@@ -78,7 +78,7 @@ export class CarServicesService {
 
   }
 
-  getCarItems(): Array<CarItem> {
+  getCarItems(): Array<CarItem> {//Metodo para devolver los elementos guardados en el carrito, relacionado a la historia de usuario Hu5 
     var listaCarItems = new Array();
     for (let i = 0; i < localStorage.length; i++) {
       var nombre = localStorage.key(i);
@@ -90,7 +90,7 @@ export class CarServicesService {
     return listaCarItems;
   }
 
-  removeCarItems(): void {
+  removeCarItems(): void {//Metodo para eliminar todos los items de carrito, se usa para limpiar el carrito despues de finalizar la compra , relacionado a la historia de usuario Hu11
     localStorage.clear();
   }
 }

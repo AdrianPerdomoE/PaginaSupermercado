@@ -1,10 +1,11 @@
+<!--Deacuerdo al rol del usaurio cambia lo que se vera en pantalla-->
 <div class="container">
     <ng-template #Cliente>
-        <h2>Dinero gastado en la tienda: {{dineroTotal}}</h2>
+        <h2>Dinero gastado en la tienda: {{dineroTotal |currency:"COP":"symbol-narrow":"1.0-0"}}</h2>
         <h1>Historial de compra:</h1>
     </ng-template>
     <div *ngIf="_auth.isAdmin.value else Cliente">
-        <h2>Dinero ganado en la tienda: {{dineroTotal}}</h2>
+        <h2>Dinero ganado en la tienda: {{dineroTotal |currency:"COP":"symbol-narrow":"1.0-0"}}</h2>
         <h1>Historial de ventas:</h1>
     </div>
     <ul class="EstadisticasProductos">

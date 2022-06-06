@@ -25,11 +25,11 @@ export class PagarComponent implements OnInit {
     this.itemsCarrito = this._carService.getCarItems();
     this.tablaIva = TablaIVA;
   }
-
+  //Este componente esta relacionado con Hu11
   ngOnInit(): void {
     this.user = this._auth.isAdmin.value || this._auth.isClient.value ? this._auth.user : this.user;
   }
-  onSubmit(form: any) {
+  onSubmit(form: any) {//Al enviar el formulario, se procesan los items del carrito y estos se van añadiendo a la lista de detalles en formato string, posteriormente se crea una factura , se añade a la coleccion de facturas, se muestra en pantalla al usaurio el comprobante de pago y se eliminan los productos del carrito.
     let detalles: Array<string> = []
     this.itemsCarrito.forEach(item => {
       detalles.push(JSON.stringify(item))
@@ -89,7 +89,7 @@ export class PagarComponent implements OnInit {
     });
     return total;
   }
-  cancelar() {
+  cancelar() {//Metodo para cancelar el pago y volver al carrito de compra
     this._router.navigate(['/CarritoCompra']);
   }
 }

@@ -9,4 +9,4 @@ export class Factura {
         public subTotal: number,
         public total: number,
     ) { }
-}
+}//Modelo de las propiedades que contiene la factura

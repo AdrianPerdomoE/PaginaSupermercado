@@ -2,7 +2,7 @@
 var User = require('../models/Usuario');
 
 var controller = {
-    saveUser: (req, res) => {
+    saveUser: (req, res) => {//Metodo para guardar un usuario en la colleción de la base de datos, relacionado con la historia de usuario Hu12 y el requisito RF0011
         let usuario = new User();
         var params = req.body;
         usuario.nombre = params.nombre;
@@ -22,7 +22,7 @@ var controller = {
         })
 
     },
-    getUser: function(req, res) {
+    getUser: function (req, res) {//Metodo para buscar un usuario en la base de datos por el nombre de usuario, retorna el usuario encontrado, metodo relacionado con la historia de usuario Hu13 y Hu14
         var UserName = req.params.UserName;
 
         if (!UserName) {
@@ -42,7 +42,7 @@ var controller = {
 
         })
     },
-    getUsers: function(req, res) {
+    getUsers: function (req, res) {//Metodo para buscar todos los usuarios y devolver una lista con todos los elementos, relacionado a verificar la existencia de un usuario 
         User.find({}).exec((err, users) => {
             if (err) return res.status(500).send({ message: 'Error al devolver los datos' })
 
@@ -53,7 +53,7 @@ var controller = {
 
     },
 
-    getAdmin: function(req, res) {
+    getAdmin: function (req, res) {//Metodo para obtener el administrador
         User.findOne({ rol: "ADMIN" }).exec((err, users) => {
             if (err) return res.status(500).send({ message: 'Error al devolver los datos' })
 
@@ -63,7 +63,7 @@ var controller = {
         })
     },
 
-    updateUser: function(req, res) {
+    updateUser: function (req, res) {//Metodo para actualiar un usuario, relacionado con la historia de usuario Hu15 y el requisito RF016
         var userId = req.params.id;
         var update = req.body;
 
@@ -77,7 +77,7 @@ var controller = {
             })
         })
     },
-    deleteUser: function(req, res) {
+    deleteUser: function (req, res) {//Metodo para eliminar un usuario.
         var userId = req.params.id;
 
         User.findByIdAndDelete(userId, (err, userRemoved) => {

@@ -16,6 +16,7 @@ import { EstadisticasComponent } from './components/estadisticas/estadisticas.co
 
 import { PagarComponent } from './components/pagar/pagar.component';
 //Añadir ruta a la lista
+//estas rutas permiten vincular un texto en el url a un componente 
 const routes: Routes = [
   { path: "", redirectTo: "Productos", pathMatch: "full" },
   { path: "Login", component: LoginComponent },
@@ -27,7 +28,7 @@ const routes: Routes = [
   { path: "ProductosAdmin", component: ProductosAdminComponent, canActivate: [AdminGuard] },
   { path: "Registrar", component: RegistrarComponent },
   { path: "Perfil", component: PerfilComponent },
-  { path: "Estadisticas", component: EstadisticasComponent},
+  { path: "Estadisticas", component: EstadisticasComponent },
   { path: "Pagar", component: PagarComponent },
   { path: "**", component: ErrorComponent }
 ];

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '../models/user';
-
+//Este servicio cumple la funcion de guardar el usuario que inicio sesion para poder validar su rol 
 @Injectable({
   providedIn: 'root'
 })

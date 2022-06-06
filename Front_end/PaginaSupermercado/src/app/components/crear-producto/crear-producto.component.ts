@@ -30,11 +30,10 @@ export class CrearProductoComponent implements OnInit {
     this.filesToUpload = new Array<File>();
     this.savedProduct = new Product("", "", "", 0, 0, "", "", 0);
   }
-
   ngOnInit(): void {
   }
   onSubmit(productForm: any) {
-    //guardar el producto en la base de datos
+    //guardar el producto en la base de datos Hu1
     this.product.tipo = this.selecionado.descripcion
     this.product.codigo = this.selecionado.codigo
     this._productService.saveProduct(this.product).subscribe(

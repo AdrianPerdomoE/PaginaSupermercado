@@ -1,5 +1,5 @@
 export const TablaIVA =
-    [
+    [//tabla de ivas de la canasta familiar, con codigo, tipo de producto y valor de iva en decimal
         { codigo: 1110100, descripcion: "Arroz", IVA: 0 },
         { codigo: 1110200, descripcion: "Harina de maíz y otras harinas", IVA: 0.05 },
         { codigo: 1110300, descripcion: "Pastas alimenticias", IVA: 0.05 },

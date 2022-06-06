@@ -12,7 +12,7 @@ var controller = {
         factura.detalles = params.detalles;
         factura.subTotal = params.subTotal;
         factura.total = params.total;
-        factura.save((err, facturaStored) => {
+        factura.save((err, facturaStored) => {//Metodo para guardar una factura en la colección de la base de datos relacionado con la historia de usuario Hu11 y el requisito RL002
             if (err) {
                 return res.status(500).send({ msg: 'Error en la petición' })
             }
@@ -23,7 +23,7 @@ var controller = {
         })
 
     },
-    getFactura: function (req, res) {
+    getFactura: function (req, res) {//Metodo para buscar una factura por id y devolver el elemento  
         var _id = req.params._id;
         Factura.findById(_id, (err, factura) => {
             if (err) {
@@ -37,7 +37,7 @@ var controller = {
 
         })
     },
-    getfacturas: function (req, res) {
+    getfacturas: function (req, res) {//Metodo para buscar las facturas, si se ingrese el nombre de usuario la busqueda es por el comprador, propiedad de la factura, si es vacio, se devuelven todas las facturas, relacionado a las historias de usuario Hu16-Hu19 y requisitos RF0018 RF0019
         var comprador = req.params.comprador;
         if (comprador) {
             Factura.find({ comprador: comprador }).exec((err, facturas) => {

@@ -6,3 +6,4 @@ export interface CarItem {
     imagen: string,
     codigo: number
 }
+//Modelo de las propiedades que tiene un elemento de carrito
