@@ -93,6 +93,7 @@ button {
     border: none;
     letter-spacing: 0.1rem;
     background-color: var(--yellow);
+    margin: 0.5rem;
 }
 
 input,
@@ -105,6 +106,7 @@ select {
 }
 
 .formError {
+    display: block;
     color: crimson;
     font-size: x-small;
     font-weight: 700;

@@ -18,6 +18,7 @@ export class PagarComponent implements OnInit {
   public clave: string = "";
   public itemsCarrito;
   public tablaIva;
+  public InvalidEmail = false;
   medioPago: number = -1;
   listaMediosPago = ["Credito", "Debito", "contra entrega"]
   continuar: boolean = false;
@@ -63,6 +64,29 @@ export class PagarComponent implements OnInit {
       this._carService.removeCarItems();
     });
 
+  }
+  ValidarEmail() {
+    let patron = new RegExp("^[a-z]+[a-z0-9._-]+@[a-z]+\.[a-z.]{2,5}$");
+    return patron.test(this.email);
+  }
+  ValidarDatos() {
+    if (this.user.nombre == "") return false;
+    if (this.user.edad == 0) return false;
+    if (this.user.direccion == "") return false;
+    if (this.medioPago == -1) return false;
+    if (this.medioPago < 2) {
+      if (this.email == "") return false;
+      if (!this.ValidarEmail()) {
+        this.InvalidEmail = true;
+        return false;
+      }
+      else {
+        this.InvalidEmail = false;
+      }
+      if (this.cuenta == "") return false;
+      if (this.clave == "") return false;
+    }
+    return true;
   }
   ValorIva(item: any) {
     let iva = 0;

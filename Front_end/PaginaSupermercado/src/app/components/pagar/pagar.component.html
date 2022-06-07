@@ -3,7 +3,7 @@
     <h2 class="title">Pagar carrito de compra</h2>
 
     <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
-        <div #parte1 *ngIf="!continuar">
+        <div #parte1>
             <div>
                 <label for="nombre">Nombre</label>
                 <input name="nombre" type="text" #nombre="ngModel" [(ngModel)]="user.nombre" required>
@@ -11,8 +11,8 @@
             </div>
             <div>
                 <label for="edad">Edad</label>
-                <input name="edad" type="number" #edad="ngModel" [(ngModel)]="user.edad" required>
-                <span *ngIf="edad.touched && !edad.value" class="formError">Este campo es obligatorio</span>
+                <input name="edad" type="number" #edad="ngModel" [(ngModel)]="user.edad" min="0" max="140" required>
+                <span *ngIf="edad.touched && !edad.value" class="formError">Ingrese una edad valida</span>
             </div>
             <div>
                 <label for="direccion">Dirección</label>
@@ -21,34 +21,27 @@
             </div>
             <div>
                 <h3>Medio de pago</h3>
-                <input [disabled]="medioPago>=0" #mp1 type="checkbox" (change)="medioPago = 0">
+                <input name="mediopago" #mp1 type="radio" (change)="medioPago = 0">
                 <label>Credito</label>
-                <input [disabled]="medioPago>=0" #mp2 type="checkbox" (change)="medioPago = 1">
+                <input name="mediopago" #mp2 type="radio" (change)="medioPago = 1">
                 <label>Debito</label>
-                <input [disabled]="medioPago>=0" #mp3 type="checkbox" (change)="medioPago = 2">
+                <input name="mediopago" #mp3 type="radio" (change)="medioPago = 2">
                 <label>Contra entrega</label>
-                <button *ngIf="medioPago>=0"
-                    (click)="medioPago=-1; mp1.checked=false ; mp2.checked=false ; mp3.checked=false">Deshacer</button>
-                <button *ngIf="(mp1.checked||mp2.checked||mp3.checked)&& userForm.form.valid"
-                    (click)="continuar= true">continuar</button>
             </div>
         </div>
-        <div #parte2 *ngIf="continuar">
+        <div #parte2 *ngIf="medioPago<2 && medioPago>-1">
             <label for="correo"> correo electronico</label>
-            <input type="email" name="correo" #correo="ngModel" [(ngModel)]="email" placeholder="Enter an Email"
-                ng-pattern=" ^[a-z]+[a-z0-9._-]+@[a-z]+\.[a-z.]{2,5}$" />
+            <input type="email" name="correo" #correo="ngModel" [(ngModel)]="email" placeholder="Enter an Email" />
             <span *ngIf="correo.touched && !correo.value " class="formError">Este campo es obligatorio</span>
-            <span class="formError" *ngIf="correo.value && correo.value">Ingrese un correo valido</span>
+            <span class="formError" *ngIf="InvalidEmail">Ingrese un correo valido</span>
             <label for="cuenta"> numero de cuenta</label>
-            <input type="text" name="cuenta" #numcuenta="ngModel" [(ngModel)]="cuenta">
+            <input type="text" name="cuenta" #numcuenta="ngModel" [(ngModel)]="cuenta" autocomplete="off">
             <span *ngIf="numcuenta.touched && !numcuenta.value" class="formError">Este campo es obligatorio</span>
             <label for="clave"> clave</label>
-            <input type="password" name="clave" #pass="ngModel" [(ngModel)]="clave">
+            <input type="password" name="clave" #pass="ngModel" [(ngModel)]="clave" autocomplete="off">
             <span *ngIf="pass.touched && !pass.value" class="formError">Este campo es obligatorio</span>
-            <input type="submit" value="Enviar"
-                [disabled]="!(email.length>0) || !(clave.length>0) || !(cuenta.length>0) ">
         </div>
-
+        <input type="submit" value="Enviar" [disabled]="!ValidarDatos()">
     </form>
     <button (click)="cancelar()">cancelar</button>
 </div>

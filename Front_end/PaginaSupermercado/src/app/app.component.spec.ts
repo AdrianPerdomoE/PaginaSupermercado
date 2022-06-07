@@ -26,10 +26,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('PaginaSupermercado');
   });
 
-  it('should render title', () => {
+  it('should render footer as UrShopping©', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('PaginaSupermercado app is running!');
+    expect(compiled.querySelector('footer')?.textContent).toContain('UrShopping©');
   });
 });

@@ -8,9 +8,9 @@ describe('CrearProductoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CrearProductoComponent ]
+      declarations: [CrearProductoComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -22,4 +22,7 @@ describe('CrearProductoComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+  it('Should show error if name input is empty', () => {
+
+  });
+}); 
