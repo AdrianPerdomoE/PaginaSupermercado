@@ -17,12 +17,12 @@ describe('CrearProductoComponent', () => {
     fixture = TestBed.createComponent(CrearProductoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-  it('Should show error if name input is empty', () => {
 
   });
+
+  /*  it('should create', () => {
+     expect(component).toBeTruthy();
+   }); */
+  //it('Submmit botton should be disabled if inputs are blank', () => {});
 }); 

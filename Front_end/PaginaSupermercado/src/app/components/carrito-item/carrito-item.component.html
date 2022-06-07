@@ -1,22 +1,22 @@
 <div class="carritoItem" *ngIf="itemCarrito.cantidad > 0">
-    <ul (click)="clicked = !clicked">
-        <li>
+    <div class="productForm" (click)="clicked = !clicked">
+        <div>
             Nombre: {{itemCarrito.nombre}}
-        </li>
+        </div>
 
-        <li>
+        <div>
             cantidad reservada: {{itemCarrito.cantidad}}
-        </li>
+        </div>
 
-        <li>
+        <div>
             precio: {{itemCarrito.precio |currency:"COP":"symbol-narrow":"1.0-0"}}
-        </li>
-        <li>
+        </div>
+        <div>
             <div class="imagen">
                 <img *ngIf="itemCarrito.imagen" src="{{url+'GetImagen/'+itemCarrito?.imagen}}">
             </div>
-        </li>
-    </ul>
+        </div>
+    </div>
     <div *ngIf="clicked">
         <form #Form>
             <label>Cantidad</label>

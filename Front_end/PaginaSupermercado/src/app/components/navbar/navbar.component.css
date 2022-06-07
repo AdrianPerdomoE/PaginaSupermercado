@@ -18,7 +18,7 @@ app-logo {
 
 .CajaLinks {
     display: inline-flex;
-    background: color #f26a1b;
+    background: color var(--red);
     height: 4rem;
     width: 100%;
 }
@@ -26,14 +26,14 @@ app-logo {
 .CajaLinks li {
     list-style: none;
     width: 10rem;
-    background-color: #f2610d;
+    background-color: var(--red);
     border: solid 0.1rem var(--gray1);
     text-align: center;
 
 }
 
 .CajaLinks li a.actived {
-    background-color: #e97c3cfb;
+    background-color: var(--red2);
 
 
 }

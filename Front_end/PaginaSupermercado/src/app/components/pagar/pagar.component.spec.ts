@@ -8,9 +8,9 @@ describe('PagarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PagarComponent ]
+      declarations: [PagarComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +19,7 @@ describe('PagarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  /*  it('should create', () => {
+     expect(component).toBeTruthy();
+   }); */
 });

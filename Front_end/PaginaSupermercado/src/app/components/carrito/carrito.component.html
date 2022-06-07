@@ -1,12 +1,12 @@
 <div class="container">
     <h2 class="title">Carrito de compra</h2>
-    <div class="itemsCarrito" *ngIf="carritoTieneItems ; else mensaje ">
-        <div *ngFor="let itemCarrito of ListaCarrito">
+    <ul class="itemsCarrito" *ngIf="carritoTieneItems ; else mensaje ">
+        <li *ngFor="let itemCarrito of ListaCarrito">
             <div #item>
                 <app-carrito-item [itemCarrito]="itemCarrito"></app-carrito-item>
             </div>
-        </div>
-    </div>
+        </li>
+    </ul>
     <ng-template #mensaje>
         <h3>No hay productos agregadados, añada items al carrito</h3>
     </ng-template>
