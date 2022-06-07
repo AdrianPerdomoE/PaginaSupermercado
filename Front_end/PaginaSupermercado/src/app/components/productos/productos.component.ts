@@ -1,9 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/models/Product';
 import { ProductService } from 'src/app/services/Product.service';
 import { Global } from 'src/app/services/Global';
-import { Router } from '@angular/router';
-import { filter } from 'rxjs';
 @Component({
   selector: 'productos',
   templateUrl: './productos.component.html',
@@ -18,7 +16,6 @@ export class ProductosComponent implements OnInit {
   public search: string;
   constructor(
     private _productService: ProductService,
-    private _router: Router,
   ) {
     this.products = [];
     this.url = Global.url;
@@ -27,9 +24,9 @@ export class ProductosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getProjects()
+    this.getProducts()
   }
-  getProjects() {
+  getProducts() {
     this._productService.getProducts().subscribe(
       response => {
         if (response.products) {
@@ -44,7 +41,7 @@ export class ProductosComponent implements OnInit {
       filter = this.search
     }
     else {
-      this.getProjects()
+      this.getProducts()
       return;
     }
     this._productService.getAll(filter).subscribe(

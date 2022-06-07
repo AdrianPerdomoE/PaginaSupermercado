@@ -67,6 +67,7 @@ export class PagarComponent implements OnInit {
   }
   ValidarEmail() {
     let patron = new RegExp("^[a-z]+[a-z0-9._-]+@[a-z]+\.[a-z.]{2,5}$");
+
     return patron.test(this.email);
   }
   ValidarDatos() {

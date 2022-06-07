@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductosComponent } from './productos.component';
@@ -8,6 +9,7 @@ describe('ProductosComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       declarations: [ProductosComponent]
     })
       .compileComponents();
@@ -19,7 +21,8 @@ describe('ProductosComponent', () => {
     fixture.detectChanges();
   });
 
-  /* it('should create', () => {
+  it('Debe crearse el componente', () => {
     expect(component).toBeTruthy();
-  }); */
+  });
+
 });

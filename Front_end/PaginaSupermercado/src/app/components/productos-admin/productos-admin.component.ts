@@ -25,9 +25,9 @@ export class ProductosAdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getProjects();
+    this.getProducts();
   }
-  getProjects() {
+  getProducts() {
     this._productService.getProducts().subscribe(
       response => {
         if (response.products) {
@@ -47,7 +47,7 @@ export class ProductosAdminComponent implements OnInit {
       filter = this.search
     }
     else {
-      this.getProjects()
+      this.getProducts()
       return;
     }
     this._productService.getAll(filter).subscribe(
