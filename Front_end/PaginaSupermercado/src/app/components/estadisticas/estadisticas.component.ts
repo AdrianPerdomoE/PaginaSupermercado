@@ -21,7 +21,7 @@ export class EstadisticasComponent implements OnInit {
 
   ngOnInit(): void {//Funcion que dependiendo de si es cliente o administrador pasa un paramentro a la funcion del servicio que permite obtener las facturas, suma el dinero y junta los productos comprados para luego poder organizar de mayor a menor los elementos en una lista
     //esta relacionado a las historias de usuario Hu16 a Hu19 y los requisitos RNF008,RF018 Y RF019
-    this._facturaService.getFacturas(this._auth.isClient ? this._auth.user.UserName : " ").subscribe((response) => {
+    this._facturaService.getFacturas(this._auth.isClient.value ? this._auth.user.UserName : " ").subscribe((response) => {
       if (response) {
         response.facturas.forEach((element: Factura) => {
           this.dineroTotal += element.total;
